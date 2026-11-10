@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mega Menu Practice</title>
+
+    <!-- Tailwind CSS v4 (Browser CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- Poppins ফন্ট -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- আইকন (Remix Icon) -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css" rel="stylesheet" />
+
+    <!-- Tailwind v4: কাস্টম কালার ও ফন্ট এখানে -->
+    <style type="text/tailwindcss">
+        @theme {
+      --color-primary: #336699;
+      --color-secondary: #f77c29;
+      --font-sans: "Poppins", sans-serif;
+    }
+  </style>
+</head>
+
+<body class="font-sans text-gray-600 bg-white">
+
+    <!-- ========== TOP BAR ========== -->
+    <div class="bg-gray-100 border-b border-gray-200 text-[11px] text-gray-600">
+        <div class="max-w-[1200px] mx-auto px-4 h-9 flex items-center justify-between">
+
+            <!-- বামে মেসেজ -->
+            <p class="uppercase">Welcome to my store</p>
+
+            <!-- ডানে লিংক (মোবাইলে লুকানো) -->
+            <div class="hidden md:flex items-center gap-5">
+                <a href="#" class="hover:text-primary">Blog</a>
+                <a href="#" class="hover:text-primary">Contact Us</a>
+                <a href="#" class="hover:text-primary">My Account</a>
+                <a href="#" class="flex items-center gap-1 hover:text-primary">
+                    <i class="ri-user-line text-sm"></i>
+                    Sign In / Register
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ========== HEADER ========== -->
+    <header class="bg-white">
+        <div class="max-w-[1200px] mx-auto px-4 h-[90px] lg:h-[100px] flex items-center justify-between gap-6">
+
+            <!-- বামে: হ্যামবার্গার (শুধু মোবাইলে) + লোগো -->
+            <div class="flex items-center gap-3">
+                <button class="lg:hidden text-3xl text-gray-800" aria-label="Open menu">
+                    <i class="ri-menu-line"></i>
+                </button>
+
+                <a href="#" class="flex items-center gap-2">
+                    <span
+                        class="w-9 h-9 rounded-full bg-primary text-white flex items-center justify-center font-bold">M</span>
+                    <span class="text-3xl font-bold text-gray-800 tracking-tight">MyStore</span>
+                </a>
+            </div>
+
+            <!-- মাঝে: সার্চ বার (শুধু ডেস্কটপে) -->
+            <form class="hidden lg:flex flex-1 max-w-[450px] h-10 border-2 border-primary bg-white">
+                <select class="w-32 px-3 text-xs text-gray-500 bg-white border-r border-gray-200 outline-hidden">
+                    <option>All Categories</option>
+                    <option>Fashion</option>
+                    <option>Electronics</option>
+                    <option>Furniture</option>
+                </select>
+                <input type="text" placeholder="Search in..." class="flex-1 px-3 text-xs outline-hidden" />
+                <button type="submit" class="px-4 text-gray-700 hover:text-primary">
+                    <i class="ri-search-line text-lg"></i>
+                </button>
+            </form>
+
+            <!-- ডানে: ফোন + আইকন -->
+            <div class="flex items-center gap-5">
+
+                <!-- ফোন (শুধু বড় স্ক্রিনে) -->
+                <div class="hidden xl:flex items-center gap-3 pr-5 border-r border-gray-200">
+                    <i class="ri-phone-line text-4xl text-gray-700"></i>
+                    <div class="leading-tight">
+                        <p class="text-xs text-gray-500">Live Chat or :</p>
+                        <p class="text-sm font-bold text-gray-800">0(800)123-456</p>
+                    </div>
+                </div>
+
+                <!-- Wishlist -->
+                <a href="#" class="hidden sm:flex flex-col items-center text-gray-700 hover:text-primary">
+                    <i class="ri-heart-line text-3xl leading-none"></i>
+                    <span class="text-[11px] mt-1">Wishlist</span>
+                </a>
+
+                <!-- Compare -->
+                <a href="#" class="hidden sm:flex flex-col items-center text-gray-700 hover:text-primary">
+                    <i class="ri-scales-3-line text-3xl leading-none"></i>
+                    <span class="text-[11px] mt-1">Compare</span>
+                </a>
+
+                <!-- Cart -->
+                <a href="#" class="relative flex flex-col items-center text-gray-700 hover:text-primary">
+                    <i class="ri-shopping-bag-line text-3xl leading-none"></i>
+                    <span class="text-[11px] mt-1 hidden sm:block">Cart</span>
+                    <span
+                        class="absolute -top-1 -right-2 w-4 h-4 rounded-full bg-primary text-white text-[10px] flex items-center justify-center">
+                        0
+                    </span>
+                </a>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- ========== MAIN NAVBAR (শুধু ডেস্কটপে) ========== -->
+    <nav class="hidden lg:block bg-white border-y border-gray-200">
+        <div class="max-w-[1200px] mx-auto px-4 h-[42px] flex items-center justify-between">
+
+        <!-- বাম দিক: Browse Categories + মেনু -->
+        <div class="flex items-center h-full">
+
+            <!-- Browse Categories বাটন -->
+            <button
+            type="button"
+            class="w-[225px] h-full px-4 bg-gray-100 flex items-center justify-between text-xs font-bold uppercase text-gray-800 hover:text-primary"
+            >
+            <span class="flex items-center gap-2">
+                <i class="ri-list-unordered text-base"></i>
+                Browse Categories
+            </span>
+            <i class="ri-arrow-down-s-line text-base"></i>
+            </button>
+
+            <!-- মেইন মেনু -->
+            <ul class="h-full flex items-center gap-8 ml-8 text-[13px] font-semibold text-gray-800">
+
+            <!-- Home (active) -->
+            <li class="h-full">
+                <a href="#" class="h-full flex items-center border-b-2 border-primary text-primary">
+                Home
+                </a>
+            </li>
+
+            <!-- Shop (মেগা মেনু ধাপ ৬ এ হবে) -->
+            <li class="group relative h-full">
+                <a href="#" class="h-full flex items-center gap-1 border-b-2 border-transparent group-hover:text-primary group-hover:border-primary">
+                Shop
+                <i class="ri-arrow-down-s-line text-sm text-gray-400 transition-transform group-hover:rotate-180"></i>
+                </a>
+            </li>
+
+            <!-- Vendor (Dropdown) -->
+            <li class="group relative h-full">
+                <a href="#" class="h-full flex items-center gap-1 border-b-2 border-transparent group-hover:text-primary group-hover:border-primary">
+                Vendor
+                <i class="ri-arrow-down-s-line text-sm text-gray-400 transition-transform group-hover:rotate-180"></i>
+                </a>
+
+                <!-- ড্রপডাউন বক্স -->
+                <ul class="absolute top-full left-0 z-50 w-[200px] py-3 bg-white shadow-lg
+                        invisible opacity-0 translate-y-2
+                        group-hover:visible group-hover:opacity-100 group-hover:translate-y-0
+                        transition-all duration-200
+                        text-[13px] font-normal text-gray-500">
+                <li><a href="#" class="block px-5 py-1.5 hover:text-primary">Dokan Store List</a></li>
+                <li><a href="#" class="block px-5 py-1.5 hover:text-primary">WC Marketplace</a></li>
+                <li><a href="#" class="block px-5 py-1.5 hover:text-primary">WCFM Store</a></li>
+                <li><a href="#" class="block px-5 py-1.5 hover:text-primary">WC Vendors</a></li>
+                <li><a href="#" class="block px-5 py-1.5 hover:text-primary">Vendor Dashboard</a></li>
+                </ul>
+            </li>
+
+            <!-- Blog (Dropdown) -->
+            <li class="group relative h-full">
+                <a href="#" class="h-full flex items-center gap-1 border-b-2 border-transparent group-hover:text-primary group-hover:border-primary">
+                Blog
+                <i class="ri-arrow-down-s-line text-sm text-gray-400 transition-transform group-hover:rotate-180"></i>
+                </a>
+
+                <!-- ড্রপডাউন বক্স -->
+                <ul class="absolute top-full left-0 z-50 w-[200px] py-3 bg-white shadow-lg
+                        invisible opacity-0 translate-y-2
+                        group-hover:visible group-hover:opacity-100 group-hover:translate-y-0
+                        transition-all duration-200
+                        text-[13px] font-normal text-gray-500">
+                <li><a href="#" class="block px-5 py-1.5 hover:text-primary">Classic</a></li>
+                <li><a href="#" class="block px-5 py-1.5 hover:text-primary">Listing</a></li>
+                <li><a href="#" class="block px-5 py-1.5 hover:text-primary">Grid</a></li>
+                <li><a href="#" class="block px-5 py-1.5 hover:text-primary">Masonry</a></li>
+                <li><a href="#" class="block px-5 py-1.5 hover:text-primary">Mask</a></li>
+                <li><a href="#" class="block px-5 py-1.5 hover:text-primary">Single Post</a></li>
+                </ul>
+            </li>
+
+            <!-- Pages (পরে হবে) -->
+            <li class="group relative h-full">
+                <a href="#" class="h-full flex items-center gap-1 border-b-2 border-transparent group-hover:text-primary group-hover:border-primary">
+                Pages
+                <i class="ri-arrow-down-s-line text-sm text-gray-400 transition-transform group-hover:rotate-180"></i>
+                </a>
+            </li>
+
+            <!-- Elements -->
+            <li class="h-full">
+                <a href="#" class="h-full flex items-center border-b-2 border-transparent hover:text-primary hover:border-primary">
+                Elements
+                </a>
+            </li>
+
+            </ul>
+        </div>
+
+        <!-- ডান দিক: Track Order + Daily Deals -->
+        <div class="flex items-center gap-8 text-[13px] font-semibold text-gray-800">
+            <a href="#" class="flex items-center gap-2 hover:text-primary">
+            <i class="ri-map-pin-line text-xl"></i>
+            Track Order
+            </a>
+            <a href="#" class="flex items-center gap-2 hover:text-primary">
+            <i class="ri-price-tag-3-line text-xl"></i>
+            Daily Deals
+            </a>
+        </div>
+
+        </div>
+    </nav>
+
+</body>
+
+</html>
