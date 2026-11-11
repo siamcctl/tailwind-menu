@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu (Simple Dropdown)</title>
+
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- Remix Icon (CDN) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css">
+
+    <style type="text/tailwindcss">
+        @theme {
+            --color-primary: #336699;
+            --color-secondary: #f77c29;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ========== TOP BAR ========== -->
+    <section class="bg-gray-100 border-b border-gray-200">
+        <div class="max-w-[1200px] mx-auto flex items-center justify-between px-4 h-9 text-[11px] text-gray-600">
+            <p class="uppercase">Welcome to my store</p>
+            <div class="flex gap-6 items-center">
+                <a href="#" class="hover:text-primary">Blog</a>
+                <a href="#" class="hover:text-primary">Contact Us</a>
+                <a href="#" class="hover:text-primary">My Account</a>
+                <a href="#" class="hover:text-primary">
+                    <i class="ri-user-line"></i>
+                    <span class="">Sign In / Register</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== HEADER ========== -->
+    <header class="">
+        <div class="max-w-[1200px] mx-auto flex items-center justify-between px-4 h-[100px]">
+            <a href="#" class="flex items-center justify-center gap-2">
+                <span
+                    class="bg-primary text-white block flex items-center justify-center rounded-full font-bold h-10 w-10 text-lg">M</span>
+                <p class="text-3xl font-bold">MyStore</p>
+            </a>
+            <form action="#" class="h-10 max-w-[450px] flex-1 border-2 border-primary text-xs flex">
+                <select name="" id="" class="border-gray-300 border-r outline-none px-3 text-gray-500 w-32">
+                    <option value="">All Categories</option>
+                    <option value="">Fashion</option>
+                    <option value="">Electronics</option>
+                    <option value="">Furniture</option>
+                </select>
+                <input type="text" class="text-gray-500 px-3 flex-1 outline-none" placeholder="Search in...">
+                <button class="px-4">
+                    <i class="ri-search-line text-lg text-primary"></i>
+                </button>
+            </form>
+            <div class="flex gap-5">
+                <div class="flex items-center text-x gap-3 pr-5 border-r border-gray-200">
+                    <i class="ri-phone-line text-3xl"></i>
+                    <div class="">
+                        <p class="text-gray-400">Live Chat or :</p>
+                        <p class="font-bold text-base">0(800)123-456</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 text-xs">
+                    <div class="flex flex-col justify-center items-center">
+                        <i class="ri-heart-line text-3xl"></i>
+                        <span class="text-gray-500">Wishlist</span>
+                    </div>
+                    <div class="flex flex-col justify-center items-center">
+                        <i class="ri-scales-3-line text-3xl"></i>
+                        <span class="text-gray-500">Compare</span>
+                    </div>
+                    <div class="flex flex-col justify-center items-center relative">
+                        <i class="ri-shopping-bag-line text-3xl"></i>
+                        <span class="text-gray-500">Cart</span>
+                        <span
+                            class="absolute -top-1 h-4 w-4 bg-primary text-white rounded-full flex items-center justify-center text-xs -right-1">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========== MAIN NAVBAR (শুধু ডেস্কটপে) ========== -->
+    <nav class="border-gray-300 border-y-1">
+        <div class="flex h-10 justify-between max-w-[1200px] mx-auto px-4">
+            <div class="flex gap-6">
+                <button type="button" class="bg-gray-100 flex font-bold items-center justify-between px-3 w-[225px]">
+                    <span class="flex gap-2 items-center text-xs uppercase">
+                        <i class="ri-menu-line text-lg"></i>
+                        Browse Category
+                    </span>
+                    <i class="ri-arrow-down-s-line"></i>
+                </button>
+                <ul class="flex gap-6 items-center ">
+                    <li class="h-full">
+                        <a href=""
+                            class="text-xs font-bold hover:text-primary border-b-2 border-primary flex h-full items-center">Home</a>
+                    </li>
+                    <li class="h-full">
+                        <a href=""
+                            class="text-xs font-bold hover:text-primary hover:border-b-2 border-primary flex h-full items-center">Shop
+                            <i class="ri-arrow-drop-down-line text-xl"></i>
+                        </a>
+                    </li>
+                    <li class="group h-full relative">
+                        <a href="#"
+                            class="border-primary flex font-bold group-hover:border-b-2 group-hover:text-primary h-full items-center text-xs">Vendor
+                            <i
+                                class="delay-150 group-hover:rotate-180 ri-arrow-drop-down-line text-xl transition-transform"></i>
+                        </a>
+                        <ul
+                            class="absolute top-full left-0 translate-y-2 group-hover:translate-y-0 bg-white py-3 delay-150 group-hover:visible invisible shadow-lg text-xs transtion-all duration-300 delay-150 w-[200px] text-gray-500">
+                            <li class="">
+                                <a href="" class="block hover:text-primary px-5 py-2.5">Dokan Store List</a>
+                            </li>
+                            <li class="">
+                                <a href="" class="block hover:text-primary px-5 py-2.5">WC Marketplace</a>
+                            </li>
+                            <li class="">
+                                <a href="" class="block hover:text-primary px-5 py-2.5">WCFM Store</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="group relative h-full">
+                        <a href=""
+                            class="border-primary flex font-bold group-hover:border-b-2 group-hover:text-primary h-full items-center text-xs">Blog
+                            <i
+                                class="delay-150 group-hover:rotate-180 ri-arrow-drop-down-line text-xl transition-transform"></i>
+                        </a>
+                        <ul
+                            class="absolute top-full left-0 translate-y-2 group-hover:translate-y-0 bg-white py-3 delay-150 group-hover:visible invisible shadow-lg text-xs transtion-all duration-300 delay-150 w-[200px] text-gray-500">
+                            <li class="">
+                                <a href="" class="block hover:text-primary px-5 py-2.5">Classic</a>
+                            </li>
+                            <li class="">
+                                <a href="" class="block hover:text-primary px-5 py-2.5">Listing</a>
+                            </li>
+                            <li class="group/sub relative">
+                                <a href=""
+                                    class="group-hover/sub:text-primary px-5 py-2.5 flex items-center justify-between">Grid
+                                    <i class="ri-arrow-right-s-line"></i>
+                                </a>
+                                <ul
+                                    class="absolute top-0 left-full translate-y-2 group-hover/sub:translate-y-0 bg-white py-3 delay-150 group-hover/sub:visible invisible shadow-lg text-xs transtion-all duration-300 delay-150 w-[200px] text-gray-500">
+                                    <li class="">
+                                        <a href="" class="block hover:text-primary px-5 py-2.5">Grid 2
+                                            Columns</a>
+                                    </li>
+                                    <li class="">
+                                        <a href="" class="block hover:text-primary px-5 py-2.5">Grid 3
+                                            Columns</a>
+                                    </li>
+                                    <li class="">
+                                        <a href="" class="block hover:text-primary px-5 py-2.5">Grid 4
+                                            Columns</a>
+                                    </li>
+                                    <li class="group/child relative">
+                                        <a href=""
+                                            class="flex justify-between items-center group-hover/child:text-primary px-5 py-2.5">Grid
+                                            Sidebar
+                                            <i class="ri-arrow-right-s-line"></i>
+                                        </a>
+                                        <ul
+                                            class="absolute top-0 left-full translate-y-2 group-hover/child:translate-y-0 bg-white py-3 delay-150 group-hover/child:visible invisible shadow-lg text-xs transtion-all duration-300 delay-150 w-[200px] text-gray-500">
+                                            <li class="">
+                                                <a href="" class="block hover:text-primary px-5 py-2.5">Grid
+                                                    Sidebar 1</a>
+                                            </li>
+                                            <li class="">
+                                                <a href="" class="block hover:text-primary px-5 py-2.5">Grid
+                                                    Sidebar 2</a>
+                                            </li>
+                                            <li class="">
+                                                <a href="" class="block hover:text-primary px-5 py-2.5">Grid
+                                                    Sidebar 3</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="group/sub relative">
+                                <a href=""
+                                    class="group-hover/sub:text-primary px-5 py-2.5 flex items-center justify-between">Mansory
+                                    <i class="ri-arrow-right-s-line"></i>
+                                </a>
+                                <ul
+                                    class="absolute top-0 left-full translate-y-2 group-hover/sub:translate-y-0 bg-white py-3 delay-150 group-hover/sub:visible invisible shadow-lg text-xs transtion-all duration-300 delay-150 w-[200px] text-gray-500">
+                                    <li class="">
+                                        <a href="" class="block hover:text-primary px-5 py-2.5">Mansory 2
+                                            Columns</a>
+                                    </li>
+                                    <li class="">
+                                        <a href="" class="block hover:text-primary px-5 py-2.5">Mansory 3
+                                            Columns</a>
+                                    </li>
+                                    <li class="">
+                                        <a href="" class="block hover:text-primary px-5 py-2.5">Mansory 4
+                                            Columns</a>
+                                    </li>
+                                    <li class="">
+                                        <a href="" class="block hover:text-primary px-5 py-2.5">Mansory Sidebar</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="group/sub relative">
+                                <a href=""
+                                    class="group-hover/sub:text-primary px-5 py-2.5 flex items-center justify-between">Mask
+                                    <i class="ri-arrow-right-s-line"></i>
+                                </a>
+                                <ul
+                                    class="absolute top-0 left-full translate-y-2 group-hover/sub:translate-y-0 bg-white py-3 delay-150 group-hover/sub:visible invisible shadow-lg text-xs transtion-all duration-300 delay-150 w-[200px] text-gray-500">
+                                    <li class="">
+                                        <a href="" class="block hover:text-primary px-5 py-2.5">Mask 2
+                                            Columns</a>
+                                    </li>
+                                    <li class="">
+                                        <a href="" class="block hover:text-primary px-5 py-2.5">Mask 3
+                                            Columns</a>
+                                    </li>
+                                    <li class="">
+                                        <a href="" class="block hover:text-primary px-5 py-2.5">Mask 4
+                                            Columns</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="">
+                                <a href="" class="block hover:text-primary px-5 py-2.5">Single Post</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="h-full">
+                        <a href=""
+                            class="text-xs font-bold hover:text-primary hover:border-b-2 border-primary flex h-full items-center">Pages
+                            <i class="ri-arrow-drop-down-line text-xl"></i>
+                        </a>
+                    </li>
+                    <li class="h-full">
+                        <a href=""
+                            class="text-xs font-bold hover:text-primary hover:border-b-2 border-primary flex h-full items-center">Elements
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="flex gap-6 items-center text-xs">
+                <a href="#" class="flex items-center gap-2 hover:text-primary">
+                    <i class="ri-map-pin-line text-xl"></i>
+                    <p class="">Track Order</p>
+                </a>
+                <a href="#" class="flex items-center gap-2 hover:text-primary">
+                    <i class="ri-price-tag-3-line text-xl"></i>
+                    <p class="">Daily Deals</p>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+
+
+</body>
+
+</html>
