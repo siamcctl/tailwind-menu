@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu (Mobile Hambergur + off-canvas drawer)</title>
+
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- Remix Icon (CDN) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css">
+
+    <style type="text/tailwindcss">
+        @theme {
+            --color-primary: #336699;
+            --color-secondary: #f77c29;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ========== TOP BAR ========== -->
+    <section class="bg-gray-100 border-b border-gray-200">
+        <div class="max-w-[1200px] mx-auto flex items-center justify-between px-4 h-9 text-[11px] text-gray-600">
+            <p class="uppercase">Welcome to my store</p>
+            <div class="gap-6 items-center hidden md:flex">
+                <a href="#" class="hover:text-primary">Blog</a>
+                <a href="#" class="hover:text-primary">Contact Us</a>
+                <a href="#" class="hover:text-primary">My Account</a>
+                <a href="#" class="hover:text-primary">
+                    <i class="ri-user-line"></i>
+                    <span class="">Sign In / Register</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== HEADER ========== -->
+    <header class="">
+        <div class="max-w-[1200px] mx-auto flex items-center justify-between px-4 h-[100px]">
+            <div class="flex items-center gap-3">
+                <button id="menu-open" type="button" class="cursor-pointer lg:hidden">
+                    <i class="ri-menu-line text-3xl"></i>
+                </button>
+                <a href="#" class="flex items-center justify-center gap-2">
+                    <span
+                        class="bg-primary text-white block flex items-center justify-center rounded-full font-bold h-10 w-10 text-lg">M</span>
+                    <p class="text-3xl font-bold">MyStore</p>
+                </a>
+            </div>
+            <form action="#" class="h-10 max-w-[450px] flex-1 border-2 border-primary text-xs hidden lg:flex">
+                <select name="" id="" class="border-gray-300 border-r outline-none px-3 text-gray-500 w-32">
+                    <option value="">All Categories</option>
+                    <option value="">Fashion</option>
+                    <option value="">Electronics</option>
+                    <option value="">Furniture</option>
+                </select>
+                <input type="text" class="text-gray-500 px-3 flex-1 outline-none" placeholder="Search in...">
+                <button class="px-4">
+                    <i class="ri-search-line text-lg text-primary"></i>
+                </button>
+            </form>
+            <div class="flex gap-5">
+                <div class="items-center text-x gap-3 pr-5 border-r border-gray-200 hidden lg:flex">
+                    <i class="ri-phone-line text-3xl"></i>
+                    <div class="">
+                        <p class="text-gray-400">Live Chat or :</p>
+                        <p class="font-bold text-base">0(800)123-456</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 text-xs">
+                    <div class="flex-col justify-center items-center hidden sm:flex">
+                        <i class="ri-heart-line text-3xl"></i>
+                        <span class="text-gray-500">Wishlist</span>
+                    </div>
+                    <div class="flex-col justify-center items-center hidden sm:flex">
+                        <i class="ri-scales-3-line text-3xl"></i>
+                        <span class="text-gray-500">Compare</span>
+                    </div>
+                    <div class="flex flex-col justify-center items-center relative">
+                        <i class="ri-shopping-bag-line text-3xl"></i>
+                        <span class="text-gray-500">Cart</span>
+                        <span
+                            class="absolute -top-1 h-4 w-4 bg-primary text-white rounded-full flex items-center justify-center text-xs -right-1">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========== MAIN NAVBAR (শুধু ডেস্কটপে) ========== -->
+    <nav class="border-gray-300 border-y-1 hidden lg:block">
+        <div class="flex h-10 justify-between max-w-[1200px] mx-auto px-4">
+            <div class="flex gap-6">
+
+                <!-- Browse Category -->
+                <!-- <button type="button" class="bg-gray-100 flex font-bold items-center justify-between px-3 w-[225px]">
+                    <span class="flex gap-2 items-center text-xs uppercase">
+                        <i class="ri-menu-line text-lg"></i>
+                        Browse Category
+                    </span>
+                    <i class="ri-arrow-down-s-line"></i>
+                </button> -->
+
+                <div class="group/cat">
+                    <button type="button"
+                        class="h-full bg-gray-100 flex font-bold items-center justify-between px-3 w-[225px] hover:text-primary pointer">
+                        <span class="flex gap-2 items-center text-xs uppercase">
+                            <i class="ri-menu-line text-lg"></i>
+                            Browse Category
+                        </span>
+                        <i class="ri-arrow-down-s-line"></i>
+                    </button>
+
+                    <div
+                        class="relative bg-white px-2 py-1 shadow-lg invisible group-hover/cat:visible translate-y-2 group-hover/cat:translate-y-0 transition-all delay-150 duration-150">
+                        <ul class="text-xs text-gray-700">
+                            <li class="group/item">
+                                <a href=""
+                                    class="border-b border-gray-200 flex items-center justify-between px-2.5 py-3 font-tight hover:text-primary font-semibold">
+                                    <span class="flex gap-3 items-center">
+                                        <i class="ri-t-shirt-line"></i>
+                                        Fashion
+                                    </span>
+                                    <i class="ri-arrow-right-s-line"></i>
+                                </a>
+                                <div
+                                    class="absolute top-0 left-full bg-white shadow-lg w-[600px] flex min-h-[300px] invisible group-hover/item:visible translate-y-2 group-hover/item:translate-y-0 transition-all delay-150 duration-150">
+
+                                    <div class="flex-1 grid grid-cols-2 gap-6 p-6">
+                                        <div class="space-y-3">
+                                            <h4 class="font-bold uppercase border-b border-gray-200 pb-2 text-black">
+                                                Women</h4>
+                                            <ul class="text-gray-500 space-y-3">
+                                                <li class=""><a href="" class="hover:text-primary">New Arrivals</a></li>
+                                                <li class=""><a href="" class="hover:text-primary">Best Selling</a></li>
+                                                <li class=""><a href="" class="hover:text-primary">Tending</a></li>
+                                                <li class=""><a href="" class="hover:text-primary">Clothing</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="space-y-3">
+                                            <h4 class="font-bold uppercase border-b border-gray-200 pb-2 text-black">Men
+                                            </h4>
+                                            <ul class="text-gray-500 space-y-3">
+                                                <li class=""><a href="" class="hover:text-primary">New Arrivals</a></li>
+                                                <li class=""><a href="" class="hover:text-primary">Best Selling</a></li>
+                                                <li class=""><a href="" class="hover:text-primary">Tending</a></li>
+                                                <li class=""><a href="" class="hover:text-primary">Clothing</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="w-[200px] bg-linear-to-br from-gray-100 to-gray-400">
+                                        <div class="p-6 space-y-3">
+                                            <p class="text-gray-600">
+                                                Get up to
+                                                <span class="font-bold text-primary">20% OFF</span>
+                                            </p>
+                                            <h3 class="text-2xl font-bold">Hot Sales</h3>
+                                            <a href="#" class="font-bold uppercase text-[10px]">
+                                                Shop Now
+                                                <i class="ri-arrow-right-long-line"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </li>
+                            <li class="">
+                                <a href=""
+                                    class="border-b border-gray-200 flex items-center justify-between px-2.5 py-3 font-tight hover:text-primary font-semibold">
+                                    <span class="flex gap-3 items-center">
+                                        <i class="ri-t-shirt-line"></i>
+                                        Home &amp; Garden
+                                    </span>
+                                    <i class="ri-arrow-right-s-line"></i>
+                                </a>
+                            </li>
+                            <li class="group/item">
+                                <a href=""
+                                    class="border-b border-gray-200 flex items-center justify-between px-2.5 py-3 font-tight hover:text-primary font-semibold">
+                                    <span class="flex gap-3 items-center">
+                                        <i class="ri-t-shirt-line"></i>
+                                        Electronics
+                                    </span>
+                                    <i class="ri-arrow-right-s-line"></i>
+                                </a>
+                                <div
+                                    class="absolute top-0 left-full bg-white shadow-lg w-[600px] flex min-h-[300px] invisible group-hover/item:visible translate-y-2 group-hover/item:translate-y-0 transition-all delay-150 duration-150">
+
+                                    <div class="flex-1 grid grid-cols-2 gap-6 p-6">
+                                        <div class="space-y-3">
+                                            <h4 class="font-bold uppercase border-b border-gray-200 pb-2 text-black">
+                                                Laptops &amp;
+                                                Computers</h4>
+                                            <ul class="text-gray-500 space-y-3">
+                                                <li class=""><a href="" class="hover:text-primary">Desktop Computers</a>
+                                                </li>
+                                                <li class=""><a href="" class="hover:text-primary">Monitors</a></li>
+                                                <li class=""><a href="" class="hover:text-primary">Laptops</a></li>
+                                                <li class=""><a href="" class="hover:text-primary">Hard Drives &amp;
+                                                        Storage</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="space-y-3">
+                                            <h4 class="font-bold uppercase border-b border-gray-200 pb-2 text-black">
+                                                Digital
+                                                Cameras</h4>
+                                            <ul class="text-gray-500 space-y-3">
+                                                <li class=""><a href="" class="hover:text-primary">Digital SLR
+                                                        Cameras</a></li>
+                                                <li class=""><a href="" class="hover:text-primary">Action Cameras</a>
+                                                </li>
+                                                <li class=""><a href="" class="hover:text-primary">Camera Lenses</a>
+                                                </li>
+                                                <li class=""><a href="" class="hover:text-primary">Photo Printers</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="space-y-3">
+                                            <h4 class="font-bold uppercase border-b border-gray-200 pb-2 text-black">Tv
+                                                &amp; Video
+                                            </h4>
+                                            <ul class="text-gray-500 space-y-3">
+                                                <li class=""><a href="" class="hover:text-primary">TVs</a></li>
+                                                <li class=""><a href="" class="hover:text-primary">Home Audio
+                                                        Speakers</a>
+                                                </li>
+                                                <li class=""><a href="" class="hover:text-primary">Projectors</a>
+                                                </li>
+                                                <li class=""><a href="" class="hover:text-primary">Media Streaming
+                                                        Devices</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="space-y-3">
+                                            <h4 class="font-bold uppercase border-b border-gray-200 pb-2 text-black">
+                                                Cell Phones
+                                            </h4>
+                                            <ul class="text-gray-500 space-y-3">
+                                                <li class=""><a href="" class="hover:text-primary">Carrier Phones</a>
+                                                </li>
+                                                <li class=""><a href="" class="hover:text-primary">Unlock Phones</a>
+                                                </li>
+                                                <li class=""><a href="" class="hover:text-primary">Phone Cases</a>
+                                                </li>
+                                                <li class=""><a href="" class="hover:text-primary">Chargers</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="w-[200px] bg-slate-950">
+                                        <div class="py-6 px-5 space-y-2">
+                                            <p class="text-gray-300">
+                                                Deals Of The Week
+                                            </p>
+                                            <h4 class="font-bold text-xl text-white">Save On Smart EarPhone</h4>
+                                            <h3 class="text-2xl font-bold text-orange-500">20% Off</h3>
+                                            <a href="#"
+                                                class="font-bold uppercase text-[10px] inline-block text-white px-4 py-2 border">
+                                                Shop Now
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </li>
+                            <li class="group/item">
+                                <a href=""
+                                    class="border-b border-gray-200 flex items-center justify-between px-2.5 py-3 font-tight hover:text-primary font-semibold">
+                                    <span class="flex gap-3 items-center">
+                                        <i class="ri-t-shirt-line"></i>
+                                        Furniture
+                                    </span>
+                                    <i class="ri-arrow-right-s-line"></i>
+                                </a>
+                                <div
+                                    class="absolute top-0 left-full bg-white shadow-lg w-[700px] min-h-[300px] invisible group-hover/item:visible translate-y-2 group-hover/item:translate-y-0 transition-all delay-150 duration-150 p-6">
+
+                                    <div class="grid grid-cols-4 gap-6">
+                                        <div class="space-y-3">
+                                            <h4 class="font-bold uppercase border-b border-gray-200 pb-2 text-black">
+                                                Furniture</h4>
+                                            <ul class="text-gray-500 space-y-3">
+                                                <li class=""><a href="" class="hover:text-primary">Sofas &amp;
+                                                        Couches</a>
+                                                </li>
+                                                <li class=""><a href="" class="hover:text-primary">Armchairs</a></li>
+                                                <li class=""><a href="" class="hover:text-primary">Bed Frames</a></li>
+                                                <li class=""><a href="" class="hover:text-primary">Beside Tables</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="space-y-3">
+                                            <h4 class="font-bold uppercase border-b border-gray-200 pb-2 text-black">
+                                                Lighting</h4>
+                                            <ul class="text-gray-500 space-y-3">
+                                                <li class=""><a href="" class="hover:text-primary">
+                                                        Light Bulbs</a></li>
+                                                <li class=""><a href="" class="hover:text-primary">Lamps</a>
+                                                </li>
+                                                <li class=""><a href="" class="hover:text-primary">Ceiling Lights</a>
+                                                </li>
+                                                <li class=""><a href="" class="hover:text-primary">Wall Lights</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="space-y-3">
+                                            <h4 class="font-bold uppercase border-b border-gray-200 pb-2 text-black">
+                                                Home Accessories
+                                            </h4>
+                                            <ul class="text-gray-500 space-y-3">
+                                                <li class=""><a href="" class="hover:text-primary">Decorative</a></li>
+                                                <li class=""><a href="" class="hover:text-primary">Candels
+                                                        Speakers</a>
+                                                </li>
+                                                <li class=""><a href="" class="hover:text-primary">Mirrors</a>
+                                                </li>
+                                                <li class=""><a href="" class="hover:text-primary">Clocks</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="space-y-3">
+                                            <h4 class="font-bold uppercase border-b border-gray-200 pb-2 text-black">
+                                                Garden
+                                            </h4>
+                                            <ul class="text-gray-500 space-y-3">
+                                                <li class=""><a href="" class="hover:text-primary">Garden Furniture</a>
+                                                </li>
+                                                <li class=""><a href="" class="hover:text-primary">Lawn Mowers</a>
+                                                </li>
+                                                <li class=""><a href="" class="hover:text-primary">Pressure Washers</a>
+                                                </li>
+                                                <li class=""><a href="" class="hover:text-primary">Outdoor Dining</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="grid grid-cols-2 gap-4 mt-6">
+                                        <div
+                                            class="px-5 space-y-2 bg-gray-300 flex items-center justify-end rounded-md">
+                                            <a href="#" class="text-end space-y-1">
+                                                <p class="text-gray-600 text-[10px]">
+                                                    New Arrivals
+                                                </p>
+                                                <h4 class="font-bold text-lg text-black">Amazing Sofa</h4>
+                                                <p class="text-[10px] text-gray-600 font-semibold">Starting at $125.00
+                                                </p>
+                                            </a>
+                                        </div>
+                                        <div class="py-6 px-5 bg-stone-300 rounded-md">
+                                            <a href="#" class="space-y-1">
+                                                <p class="text-gray-600 text-[10px]">
+                                                    Best Sellers
+                                                </p>
+                                                <h4 class="font-bold text-xl text-black">Chair &amp; Lamp</h4>
+                                                <p class="text-[10px] text-gray-600 font-semibold">From $165.00</p>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </li>
+                            <li class="">
+                                <a href=""
+                                    class="border-b border-gray-200 flex items-center justify-between px-2.5 py-3 font-tight hover:text-primary font-semibold">
+                                    <span class="flex gap-3 items-center">
+                                        <i class="ri-t-shirt-line"></i>
+                                        Health &amp; Beauty
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="">
+                                <a href=""
+                                    class="border-b border-gray-200 flex items-center justify-between px-2.5 py-3 font-tight hover:text-primary font-semibold">
+                                    <span class="flex gap-3 items-center">
+                                        <i class="ri-t-shirt-line"></i>
+                                        Gift Ideas
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="">
+                                <a href=""
+                                    class=" flex items-center justify-start gap-1 px-2.5 py-3 font-tight hover:text-primary font-semibold">
+                                    View all categories
+                                    <i class="ri-arrow-right-long-fill"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <ul class="flex gap-6 items-center ">
+
+                    <li class="h-full">
+                        <a href=""
+                            class="text-xs font-bold hover:text-primary border-b-2 border-primary flex h-full items-center">Home</a>
+                    </li>
+
+                    <li class="relative h-full group">
+                        <a href=""
+                            class="text-xs font-bold hover:text-primary hover:border-b-2 border-primary flex h-full items-center">Shop
+                            <i class="ri-arrow-drop-down-line text-xl"></i>
+                        </a>
+
+                        <div
+                            class="absolute top-full left-0 translate-y-2 w-[720px] bg-white shadow-lg p-6 grid grid-cols-4 gap-6 text-xs invisible group-hover:visible transition-all group-hover:translate-y-0">
+                            <div class="">
+                                <h6 class="font-bold uppercase mb-3">Shop pages</h6>
+                                <ul class="text-gray-500 space-y-3">
+                                    <li class="">
+                                        <a href="" class="hover:text-primary">Banner With Sidebar</a>
+                                    </li>
+                                    <li class="">
+                                        <a href="" class="hover:text-primary">Full Width Banner</a>
+                                    </li>
+                                    <li class="">
+                                        <a href="" class="hover:text-primary">Horizontal Filter
+                                            <span
+                                                class="inline-block text-white text-[9px] px-1 py-0.5 rounded uppercase font-bold ml-1 bg-yellow-500">Hot</span>
+                                        </a>
+                                    </li>
+                                    <li class="">
+                                        <a href="" class="hover:text-primary">Off Canvas Sidebar
+                                            <span
+                                                class="inline-block bg-primary text-white text-[9px] px-1 py-0.5 rounded uppercase font-bold ml-1">New</span>
+
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="">
+                                <h6 class="font-bold uppercase mb-3">Shop Layouts</h6>
+                                <ul class="text-gray-500 space-y-3">
+                                    <li class="">
+                                        <a href="" class="hover:text-primary">3 Columns Mode</a>
+                                    </li>
+                                    <li class="">
+                                        <a href="" class="hover:text-primary">4 Columns Mode</a>
+                                    </li>
+                                    <li class="">
+                                        <a href="" class="hover:text-primary">List Mode</a>
+                                    </li>
+                                    <li class="">
+                                        <a href="" class="hover:text-primary">List Mode With Sidebar</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="">
+                                <h6 class="font-bold uppercase mb-3">Product Pages</h6>
+                                <ul class="text-gray-500 space-y-3">
+                                    <li class="">
+                                        <a href="" class="hover:text-primary">Variable Product</a>
+                                    </li>
+                                    <li class="">
+                                        <a href="" class="hover:text-primary">Featured &amp; Sale</a>
+                                    </li>
+                                    <li class="">
+                                        <a href="" class="hover:text-primary">Without Sidebar</a>
+                                    </li>
+                                    <li class="">
+                                        <a href="" class="hover:text-primary">360° &amp; Video
+                                            <span
+                                                class="inline-block bg-primary text-white text-[9px] px-1 py-0.5 rounded uppercase font-bold ml-1">New</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="">
+                                <h6 class="font-bold uppercase mb-3">Product Layouts</h6>
+                                <ul class="text-gray-500 space-y-3">
+                                    <li class="">
+                                        <a href="" class="hover:text-primary">Default
+                                            <span
+                                                class="inline-block text-white text-[9px] px-1 py-0.5 rounded uppercase font-bold ml-1 bg-yellow-500">Hot</span>
+                                        </a>
+                                    </li>
+                                    <li class="">
+                                        <a href="" class="hover:text-primary">Grid Images</a>
+                                    </li>
+                                    <li class="">
+                                        <a href="" class="hover:text-primary">Gallery</a>
+                                    </li>
+                                    <li class="">
+                                        <a href="" class="hover:text-primary">Sticky Info</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="group h-full relative">
+                        <a href="#"
+                            class="border-primary flex font-bold group-hover:border-b-2 group-hover:text-primary h-full items-center text-xs">Vendor
+                            <i
+                                class="delay-150 group-hover:rotate-180 ri-arrow-drop-down-line text-xl transition-transform"></i>
+                        </a>
+                        <ul
+                            class="absolute top-full left-0 translate-y-2 group-hover:translate-y-0 bg-white py-3 delay-150 group-hover:visible invisible shadow-lg text-xs transtion-all duration-300 delay-150 w-[200px] text-gray-500">
+                            <li class="">
+                                <a href="" class="block hover:text-primary px-5 py-2.5">Dokan Store List</a>
+                            </li>
+                            <li class="">
+                                <a href="" class="block hover:text-primary px-5 py-2.5">WC Marketplace</a>
+                            </li>
+                            <li class="">
+                                <a href="" class="block hover:text-primary px-5 py-2.5">WCFM Store</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="group relative h-full">
+                        <a href=""
+                            class="border-primary flex font-bold group-hover:border-b-2 group-hover:text-primary h-full items-center text-xs">Blog
+                            <i
+                                class="delay-150 group-hover:rotate-180 ri-arrow-drop-down-line text-xl transition-transform"></i>
+                        </a>
+                        <ul
+                            class="absolute top-full left-0 translate-y-2 group-hover:translate-y-0 bg-white py-3 delay-150 group-hover:visible invisible shadow-lg text-xs transtion-all duration-300 delay-150 w-[200px] text-gray-500">
+                            <li class="">
+                                <a href="" class="block hover:text-primary px-5 py-2.5">Classic</a>
+                            </li>
+                            <li class="">
+                                <a href="" class="block hover:text-primary px-5 py-2.5">Listing</a>
+                            </li>
+                            <li class="group/sub relative">
+                                <a href=""
+                                    class="group-hover/sub:text-primary px-5 py-2.5 flex items-center justify-between">Grid
+                                    <i class="ri-arrow-right-s-line"></i>
+                                </a>
+                                <ul
+                                    class="absolute top-0 left-full translate-y-2 group-hover/sub:translate-y-0 bg-white py-3 delay-150 group-hover/sub:visible invisible shadow-lg text-xs transtion-all duration-300 delay-150 w-[200px] text-gray-500">
+                                    <li class="">
+                                        <a href="" class="block hover:text-primary px-5 py-2.5">Grid 2
+                                            Columns</a>
+                                    </li>
+                                    <li class="">
+                                        <a href="" class="block hover:text-primary px-5 py-2.5">Grid 3
+                                            Columns</a>
+                                    </li>
+                                    <li class="">
+                                        <a href="" class="block hover:text-primary px-5 py-2.5">Grid 4
+                                            Columns</a>
+                                    </li>
+                                    <li class="group/child relative">
+                                        <a href=""
+                                            class="flex justify-between items-center group-hover/child:text-primary px-5 py-2.5">Grid
+                                            Sidebar
+                                            <i class="ri-arrow-right-s-line"></i>
+                                        </a>
+                                        <ul
+                                            class="absolute top-0 left-full translate-y-2 group-hover/child:translate-y-0 bg-white py-3 delay-150 group-hover/child:visible invisible shadow-lg text-xs transtion-all duration-300 delay-150 w-[200px] text-gray-500">
+                                            <li class="">
+                                                <a href="" class="block hover:text-primary px-5 py-2.5">Grid
+                                                    Sidebar 1</a>
+                                            </li>
+                                            <li class="">
+                                                <a href="" class="block hover:text-primary px-5 py-2.5">Grid
+                                                    Sidebar 2</a>
+                                            </li>
+                                            <li class="">
+                                                <a href="" class="block hover:text-primary px-5 py-2.5">Grid
+                                                    Sidebar 3</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="group/sub relative">
+                                <a href=""
+                                    class="group-hover/sub:text-primary px-5 py-2.5 flex items-center justify-between">Mansory
+                                    <i class="ri-arrow-right-s-line"></i>
+                                </a>
+                                <ul
+                                    class="absolute top-0 left-full translate-y-2 group-hover/sub:translate-y-0 bg-white py-3 delay-150 group-hover/sub:visible invisible shadow-lg text-xs transtion-all duration-300 delay-150 w-[200px] text-gray-500">
+                                    <li class="">
+                                        <a href="" class="block hover:text-primary px-5 py-2.5">Mansory 2
+                                            Columns</a>
+                                    </li>
+                                    <li class="">
+                                        <a href="" class="block hover:text-primary px-5 py-2.5">Mansory 3
+                                            Columns</a>
+                                    </li>
+                                    <li class="">
+                                        <a href="" class="block hover:text-primary px-5 py-2.5">Mansory 4
+                                            Columns</a>
+                                    </li>
+                                    <li class="">
+                                        <a href="" class="block hover:text-primary px-5 py-2.5">Mansory Sidebar</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="group/sub relative">
+                                <a href=""
+                                    class="group-hover/sub:text-primary px-5 py-2.5 flex items-center justify-between">Mask
+                                    <i class="ri-arrow-right-s-line"></i>
+                                </a>
+                                <ul
+                                    class="absolute top-0 left-full translate-y-2 group-hover/sub:translate-y-0 bg-white py-3 delay-150 group-hover/sub:visible invisible shadow-lg text-xs transtion-all duration-300 delay-150 w-[200px] text-gray-500">
+                                    <li class="">
+                                        <a href="" class="block hover:text-primary px-5 py-2.5">Mask 2
+                                            Columns</a>
+                                    </li>
+                                    <li class="">
+                                        <a href="" class="block hover:text-primary px-5 py-2.5">Mask 3
+                                            Columns</a>
+                                    </li>
+                                    <li class="">
+                                        <a href="" class="block hover:text-primary px-5 py-2.5">Mask 4
+                                            Columns</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="">
+                                <a href="" class="block hover:text-primary px-5 py-2.5">Single Post</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="h-full">
+                        <a href=""
+                            class="text-xs font-bold hover:text-primary hover:border-b-2 border-primary flex h-full items-center">Pages
+                            <i class="ri-arrow-drop-down-line text-xl"></i>
+                        </a>
+                    </li>
+
+                    <li class="h-full">
+                        <a href=""
+                            class="text-xs font-bold hover:text-primary hover:border-b-2 border-primary flex h-full items-center">Elements
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="flex gap-6 items-center text-xs">
+                <a href="#" class="flex items-center gap-2 hover:text-primary">
+                    <i class="ri-map-pin-line text-xl"></i>
+                    <p class="">Track Order</p>
+                </a>
+                <a href="#" class="flex items-center gap-2 hover:text-primary">
+                    <i class="ri-price-tag-3-line text-xl"></i>
+                    <p class="">Daily Deals</p>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========== MOBILE DRAWER ========== -->
+    <!-- Overlay -->
+    <div id="menu-overlay" class="fixed inset-0 bg-black/60 invisible lg:hidden transtion-all duration-300"></div>
+
+    <!-- Drawer -->
+    <aside id="mobile-menu"
+        class="fixed top-0 left-0 w-[300px] max-w-[85%] bg-black text-white flex flex-col h-full lg:hidden -translate-x-full transition-transform duration-300">
+        <div class="flex justify-end p-6">
+            <button id="menu-close" type="button" class="font-bold text-xl">
+                <i class="ri-close-large-line"></i>
+            </button>
+        </div>
+        <div class="px-6">
+            <ul class="">
+                <li class=""><a href="" class="block py-3 border-b border-gray-700 font-semibold">Home</a></li>
+                <li class=""><a href="" class="block py-3 border-b border-gray-700 font-semibold">Shop</a></li>
+                <li class=""><a href="" class="block py-3 border-b border-gray-700 font-semibold">Vendor</a></li>
+                <li class=""><a href="" class="block py-3 border-b border-gray-700 font-semibold">Blog</a></li>
+                <li class=""><a href="" class="block py-3 border-b border-gray-700 font-semibold">Pages</a></li>
+                <li class=""><a href="" class="block py-3 border-b border-gray-700 font-semibold">Elements</a></li>
+            </ul>
+        </div>
+    </aside>
+
+
+    <script>
+        // const openBtn = document.getElementById('menu-open');
+        // const closeBtn = document.querySelector('#menu-close');
+        // const overlay = document.getElementById('menu-overlay');
+        // const drawer = document.querySelector('#mobile-menu');
+        // // console.log(openBtn);
+        // // console.log(closeBtn);
+        // // console.log(overlay);
+        // // console.log(drawer);
+
+        // openBtn.addEventListener('click', function () {
+        //     overlay.classList.remove('invisible');
+        //     drawer.classList.remove('-translate-x-full');
+        // });
+        // closeBtn.addEventListener('click', function () {
+        //     overlay.classList.add('invisible');
+        //     drawer.classList.add('-translate-x-full');
+        // });
+        // overlay.addEventListener('click', function () {
+        //     overlay.classList.add('invisible');
+        //     drawer.classList.add('-translate-x-full');
+        // });
+
+        // document.addEventListener('keydown', function (e) {
+        //     // console.log(e);
+        //     if (e.key === 'Escape') {
+        //         overlay.classList.add('invisible');
+        //         drawer.classList.add('-translate-x-full');
+        //     }
+        // });
+    </script>
+    <script>
+        const openBtn = document.getElementById('menu-open');
+        const closeBtn = document.querySelector('#menu-close');
+        const overlay = document.getElementById('menu-overlay');
+        const drawer = document.querySelector('#mobile-menu');
+
+        function openMenu() {
+            overlay.classList.remove('invisible');
+            drawer.classList.remove('-translate-x-full');
+        }
+        function closeMenu() {
+            overlay.classList.add('invisible');
+            drawer.classList.add('-translate-x-full');
+        }
+
+        openBtn.addEventListener('click', openMenu);
+        closeBtn.addEventListener('click', closeMenu);
+        overlay.addEventListener('click', closeMenu);
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') closeMenu();
+        });
+    </script>
+</body>
+
+</html>
