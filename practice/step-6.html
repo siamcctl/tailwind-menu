@@ -99,9 +99,10 @@
                     </span>
                     <i class="ri-arrow-down-s-line"></i>
                 </button> -->
-                
-                <div class="">
-                    <button type="button" class="h-full bg-gray-100 flex font-bold items-center justify-between px-3 w-[225px]">
+
+                <div class="group/cat">
+                    <button type="button"
+                        class="h-full bg-gray-100 flex font-bold items-center justify-between px-3 w-[225px] hover:text-primary pointer">
                         <span class="flex gap-2 items-center text-xs uppercase">
                             <i class="ri-menu-line text-lg"></i>
                             Browse Category
@@ -109,97 +110,277 @@
                         <i class="ri-arrow-down-s-line"></i>
                     </button>
 
-                    <div class="bg-white px-2 py-1 shadow-lg">
-                        <ul class="text-gray-800 text-xs">
-                            <li class="relative">
-                                <a href="" class="border-b border-gray-200 flex items-center justify-between px-2.5 py-3 font-tight hover:text-primary">
+                    <div
+                        class="relative bg-white px-2 py-1 shadow-lg invisible group-hover/cat:visible translate-y-2 group-hover/cat:translate-y-0 transition-all delay-150 duration-150">
+                        <ul class="text-xs text-gray-700">
+                            <li class="group/item">
+                                <a href=""
+                                    class="border-b border-gray-200 flex items-center justify-between px-2.5 py-3 font-tight hover:text-primary font-semibold">
                                     <span class="flex gap-3 items-center">
-                                        <i class="ri-t-shirt-line"></i> 
+                                        <i class="ri-t-shirt-line"></i>
                                         Fashion
                                     </span>
                                     <i class="ri-arrow-right-s-line"></i>
                                 </a>
-                                <div class="absolute top-0 left-full">
-                                    <div class="">
-                                        <div class="">
-                                            <h4 class="">Women</h4>
-                                            <ul class="">
-                                                <li class=""><a href="" class="">New Arrivals</a></li>
-                                                <li class=""><a href="" class="">Best Selling</a></li>
-                                                <li class=""><a href="" class="">Tending</a></li>
-                                                <li class=""><a href="" class="">Clothing</a></li>
+                                <div
+                                    class="absolute top-0 left-full bg-white shadow-lg w-[600px] flex min-h-[300px] invisible group-hover/item:visible translate-y-2 group-hover/item:translate-y-0 transition-all delay-150 duration-150">
+
+                                    <div class="flex-1 grid grid-cols-2 gap-6 p-6">
+                                        <div class="space-y-3">
+                                            <h4 class="font-bold uppercase border-b border-gray-200 pb-2 text-black">
+                                                Women</h4>
+                                            <ul class="text-gray-500 space-y-3">
+                                                <li class=""><a href="" class="hover:text-primary">New Arrivals</a></li>
+                                                <li class=""><a href="" class="hover:text-primary">Best Selling</a></li>
+                                                <li class=""><a href="" class="hover:text-primary">Tending</a></li>
+                                                <li class=""><a href="" class="hover:text-primary">Clothing</a></li>
                                             </ul>
                                         </div>
-                                        <div class="">
-                                            <h4 class="">Men</h4>
-                                            <ul class="">
-                                                <li class=""><a href="" class="">New Arrivals</a></li>
-                                                <li class=""><a href="" class="">Best Selling</a></li>
-                                                <li class=""><a href="" class="">Tending</a></li>
-                                                <li class=""><a href="" class="">Clothing</a></li>
+                                        <div class="space-y-3">
+                                            <h4 class="font-bold uppercase border-b border-gray-200 pb-2 text-black">Men
+                                            </h4>
+                                            <ul class="text-gray-500 space-y-3">
+                                                <li class=""><a href="" class="hover:text-primary">New Arrivals</a></li>
+                                                <li class=""><a href="" class="hover:text-primary">Best Selling</a></li>
+                                                <li class=""><a href="" class="hover:text-primary">Tending</a></li>
+                                                <li class=""><a href="" class="hover:text-primary">Clothing</a></li>
                                             </ul>
                                         </div>
                                     </div>
-                                    <div class="">
-                                        <p class="">
-                                            Get up to 
-                                            <span class="">20% OFF</span>
-                                        </p>
-                                        <h3 class="">Hot Sales</h3>
-                                        <p class="">
-                                            Shop Now 
-                                            <i class="ri-arrow-right-long-line"></i>
-                                        </p>
+                                    <div class="w-[200px] bg-linear-to-br from-gray-100 to-gray-400">
+                                        <div class="p-6 space-y-3">
+                                            <p class="text-gray-600">
+                                                Get up to
+                                                <span class="font-bold text-primary">20% OFF</span>
+                                            </p>
+                                            <h3 class="text-2xl font-bold">Hot Sales</h3>
+                                            <a href="#" class="font-bold uppercase text-[10px]">
+                                                Shop Now
+                                                <i class="ri-arrow-right-long-line"></i>
+                                            </a>
+                                        </div>
                                     </div>
+
                                 </div>
                             </li>
                             <li class="">
-                                <a href="" class="border-b border-gray-200 flex items-center justify-between px-2.5 py-3 font-tight hover:text-primary">
+                                <a href=""
+                                    class="border-b border-gray-200 flex items-center justify-between px-2.5 py-3 font-tight hover:text-primary font-semibold">
                                     <span class="flex gap-3 items-center">
-                                        <i class="ri-t-shirt-line"></i> 
+                                        <i class="ri-t-shirt-line"></i>
                                         Home &amp; Garden
                                     </span>
                                     <i class="ri-arrow-right-s-line"></i>
                                 </a>
                             </li>
-                            <li class="">
-                                <a href="" class="border-b border-gray-200 flex items-center justify-between px-2.5 py-3 font-tight hover:text-primary">
+                            <li class="group/item">
+                                <a href=""
+                                    class="border-b border-gray-200 flex items-center justify-between px-2.5 py-3 font-tight hover:text-primary font-semibold">
                                     <span class="flex gap-3 items-center">
-                                        <i class="ri-t-shirt-line"></i> 
+                                        <i class="ri-t-shirt-line"></i>
                                         Electronics
                                     </span>
                                     <i class="ri-arrow-right-s-line"></i>
                                 </a>
+                                <div
+                                    class="absolute top-0 left-full bg-white shadow-lg w-[600px] flex min-h-[300px] invisible group-hover/item:visible translate-y-2 group-hover/item:translate-y-0 transition-all delay-150 duration-150">
+
+                                    <div class="flex-1 grid grid-cols-2 gap-6 p-6">
+                                        <div class="space-y-3">
+                                            <h4 class="font-bold uppercase border-b border-gray-200 pb-2 text-black">
+                                                Laptops &amp;
+                                                Computers</h4>
+                                            <ul class="text-gray-500 space-y-3">
+                                                <li class=""><a href="" class="hover:text-primary">Desktop Computers</a>
+                                                </li>
+                                                <li class=""><a href="" class="hover:text-primary">Monitors</a></li>
+                                                <li class=""><a href="" class="hover:text-primary">Laptops</a></li>
+                                                <li class=""><a href="" class="hover:text-primary">Hard Drives &amp;
+                                                        Storage</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="space-y-3">
+                                            <h4 class="font-bold uppercase border-b border-gray-200 pb-2 text-black">
+                                                Digital
+                                                Cameras</h4>
+                                            <ul class="text-gray-500 space-y-3">
+                                                <li class=""><a href="" class="hover:text-primary">Digital SLR
+                                                        Cameras</a></li>
+                                                <li class=""><a href="" class="hover:text-primary">Action Cameras</a>
+                                                </li>
+                                                <li class=""><a href="" class="hover:text-primary">Camera Lenses</a>
+                                                </li>
+                                                <li class=""><a href="" class="hover:text-primary">Photo Printers</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="space-y-3">
+                                            <h4 class="font-bold uppercase border-b border-gray-200 pb-2 text-black">Tv
+                                                &amp; Video
+                                            </h4>
+                                            <ul class="text-gray-500 space-y-3">
+                                                <li class=""><a href="" class="hover:text-primary">TVs</a></li>
+                                                <li class=""><a href="" class="hover:text-primary">Home Audio
+                                                        Speakers</a>
+                                                </li>
+                                                <li class=""><a href="" class="hover:text-primary">Projectors</a>
+                                                </li>
+                                                <li class=""><a href="" class="hover:text-primary">Media Streaming
+                                                        Devices</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="space-y-3">
+                                            <h4 class="font-bold uppercase border-b border-gray-200 pb-2 text-black">
+                                                Cell Phones
+                                            </h4>
+                                            <ul class="text-gray-500 space-y-3">
+                                                <li class=""><a href="" class="hover:text-primary">Carrier Phones</a>
+                                                </li>
+                                                <li class=""><a href="" class="hover:text-primary">Unlock Phones</a>
+                                                </li>
+                                                <li class=""><a href="" class="hover:text-primary">Phone Cases</a>
+                                                </li>
+                                                <li class=""><a href="" class="hover:text-primary">Chargers</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="w-[200px] bg-slate-950">
+                                        <div class="py-6 px-5 space-y-2">
+                                            <p class="text-gray-300">
+                                                Deals Of The Week
+                                            </p>
+                                            <h4 class="font-bold text-xl text-white">Save On Smart EarPhone</h4>
+                                            <h3 class="text-2xl font-bold text-orange-500">20% Off</h3>
+                                            <a href="#"
+                                                class="font-bold uppercase text-[10px] inline-block text-white px-4 py-2 border">
+                                                Shop Now
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                </div>
                             </li>
-                            <li class="">
-                                <a href="" class="border-b border-gray-200 flex items-center justify-between px-2.5 py-3 font-tight hover:text-primary">
+                            <li class="group/item">
+                                <a href=""
+                                    class="border-b border-gray-200 flex items-center justify-between px-2.5 py-3 font-tight hover:text-primary font-semibold">
                                     <span class="flex gap-3 items-center">
-                                        <i class="ri-t-shirt-line"></i> 
+                                        <i class="ri-t-shirt-line"></i>
                                         Furniture
                                     </span>
                                     <i class="ri-arrow-right-s-line"></i>
                                 </a>
+                                <div
+                                    class="absolute top-0 left-full bg-white shadow-lg w-[700px] min-h-[300px] invisible group-hover/item:visible translate-y-2 group-hover/item:translate-y-0 transition-all delay-150 duration-150 p-6">
+
+                                    <div class="grid grid-cols-4 gap-6">
+                                        <div class="space-y-3">
+                                            <h4 class="font-bold uppercase border-b border-gray-200 pb-2 text-black">
+                                                Furniture</h4>
+                                            <ul class="text-gray-500 space-y-3">
+                                                <li class=""><a href="" class="hover:text-primary">Sofas &amp;
+                                                        Couches</a>
+                                                </li>
+                                                <li class=""><a href="" class="hover:text-primary">Armchairs</a></li>
+                                                <li class=""><a href="" class="hover:text-primary">Bed Frames</a></li>
+                                                <li class=""><a href="" class="hover:text-primary">Beside Tables</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="space-y-3">
+                                            <h4 class="font-bold uppercase border-b border-gray-200 pb-2 text-black">
+                                                Lighting</h4>
+                                            <ul class="text-gray-500 space-y-3">
+                                                <li class=""><a href="" class="hover:text-primary">
+                                                        Light Bulbs</a></li>
+                                                <li class=""><a href="" class="hover:text-primary">Lamps</a>
+                                                </li>
+                                                <li class=""><a href="" class="hover:text-primary">Ceiling Lights</a>
+                                                </li>
+                                                <li class=""><a href="" class="hover:text-primary">Wall Lights</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="space-y-3">
+                                            <h4 class="font-bold uppercase border-b border-gray-200 pb-2 text-black">
+                                                Home Accessories
+                                            </h4>
+                                            <ul class="text-gray-500 space-y-3">
+                                                <li class=""><a href="" class="hover:text-primary">Decorative</a></li>
+                                                <li class=""><a href="" class="hover:text-primary">Candels
+                                                        Speakers</a>
+                                                </li>
+                                                <li class=""><a href="" class="hover:text-primary">Mirrors</a>
+                                                </li>
+                                                <li class=""><a href="" class="hover:text-primary">Clocks</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="space-y-3">
+                                            <h4 class="font-bold uppercase border-b border-gray-200 pb-2 text-black">
+                                                Garden
+                                            </h4>
+                                            <ul class="text-gray-500 space-y-3">
+                                                <li class=""><a href="" class="hover:text-primary">Garden Furniture</a>
+                                                </li>
+                                                <li class=""><a href="" class="hover:text-primary">Lawn Mowers</a>
+                                                </li>
+                                                <li class=""><a href="" class="hover:text-primary">Pressure Washers</a>
+                                                </li>
+                                                <li class=""><a href="" class="hover:text-primary">Outdoor Dining</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="grid grid-cols-2 gap-4 mt-6">
+                                        <div
+                                            class="px-5 space-y-2 bg-gray-300 flex items-center justify-end rounded-md">
+                                            <a href="#" class="text-end space-y-1">
+                                                <p class="text-gray-600 text-[10px]">
+                                                    New Arrivals
+                                                </p>
+                                                <h4 class="font-bold text-lg text-black">Amazing Sofa</h4>
+                                                <p class="text-[10px] text-gray-600 font-semibold">Starting at $125.00
+                                                </p>
+                                            </a>
+                                        </div>
+                                        <div class="py-6 px-5 bg-stone-300 rounded-md">
+                                            <a href="#" class="space-y-1">
+                                                <p class="text-gray-600 text-[10px]">
+                                                    Best Sellers
+                                                </p>
+                                                <h4 class="font-bold text-xl text-black">Chair &amp; Lamp</h4>
+                                                <p class="text-[10px] text-gray-600 font-semibold">From $165.00</p>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                </div>
                             </li>
                             <li class="">
-                                <a href="" class="border-b border-gray-200 flex items-center justify-between px-2.5 py-3 font-tight hover:text-primary">
+                                <a href=""
+                                    class="border-b border-gray-200 flex items-center justify-between px-2.5 py-3 font-tight hover:text-primary font-semibold">
                                     <span class="flex gap-3 items-center">
-                                        <i class="ri-t-shirt-line"></i> 
+                                        <i class="ri-t-shirt-line"></i>
                                         Health &amp; Beauty
                                     </span>
                                 </a>
                             </li>
                             <li class="">
-                                <a href="" class="border-b border-gray-200 flex items-center justify-between px-2.5 py-3 font-tight hover:text-primary">
+                                <a href=""
+                                    class="border-b border-gray-200 flex items-center justify-between px-2.5 py-3 font-tight hover:text-primary font-semibold">
                                     <span class="flex gap-3 items-center">
-                                        <i class="ri-t-shirt-line"></i> 
+                                        <i class="ri-t-shirt-line"></i>
                                         Gift Ideas
                                     </span>
                                 </a>
                             </li>
                             <li class="">
-                                <a href="" class=" flex items-center justify-start gap-3 px-2.5 py-3 font-tight hover:text-primary">
+                                <a href=""
+                                    class=" flex items-center justify-start gap-1 px-2.5 py-3 font-tight hover:text-primary font-semibold">
                                     View all categories
-                                    <i class="ri-arrow-right-s-line"></i>
+                                    <i class="ri-arrow-right-long-fill"></i>
                                 </a>
                             </li>
                         </ul>
