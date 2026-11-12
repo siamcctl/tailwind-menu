@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mega Menu Practice</title>
+
+    <!-- Tailwind CSS v4 (Browser CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- Poppins ফন্ট -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- আইকন (Remix Icon) -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css" rel="stylesheet" />
+
+    <!-- Tailwind v4: কাস্টম কালার ও ফন্ট এখানে -->
+    <style type="text/tailwindcss">
+        @theme {
+      --color-primary: #336699;
+      --color-secondary: #f77c29;
+      --font-sans: "Poppins", sans-serif;
+    }
+  </style>
+</head>
+
+<body class="font-sans text-gray-600 bg-white">
+
+    <!-- ========== TOP BAR ========== -->
+    <div class="bg-gray-100 border-b border-gray-200 text-[11px] text-gray-600">
+        <div class="max-w-[1200px] mx-auto px-4 h-9 flex items-center justify-between">
+
+            <!-- বামে মেসেজ -->
+            <p class="uppercase">Welcome to my store</p>
+
+            <!-- ডানে লিংক (মোবাইলে লুকানো) -->
+            <div class="hidden md:flex items-center gap-5">
+                <a href="#" class="hover:text-primary">Blog</a>
+                <a href="#" class="hover:text-primary">Contact Us</a>
+                <a href="#" class="hover:text-primary">My Account</a>
+                <a href="#" class="flex items-center gap-1 hover:text-primary">
+                    <i class="ri-user-line text-sm"></i>
+                    Sign In / Register
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ========== HEADER ========== -->
+    <header class="bg-white">
+        <div class="max-w-[1200px] mx-auto px-4 h-[90px] lg:h-[100px] flex items-center justify-between gap-6">
+
+            <!-- বামে: হ্যামবার্গার (শুধু মোবাইলে) + লোগো -->
+            <div class="flex items-center gap-3">
+                <!-- <button class="lg:hidden text-3xl text-gray-800" aria-label="Open menu">
+                    <i class="ri-menu-line"></i>
+                </button> -->
+                <button id="menu-open" class="lg:hidden text-3xl text-gray-800" aria-label="Open menu">
+                    <i class="ri-menu-line"></i>
+                </button>
+
+                <a href="#" class="flex items-center gap-2">
+                    <span
+                        class="w-9 h-9 rounded-full bg-primary text-white flex items-center justify-center font-bold">M</span>
+                    <span class="text-3xl font-bold text-gray-800 tracking-tight">MyStore</span>
+                </a>
+            </div>
+
+            <!-- মাঝে: সার্চ বার (শুধু ডেস্কটপে) -->
+            <form class="hidden lg:flex flex-1 max-w-[450px] h-10 border-2 border-primary bg-white">
+                <select class="w-32 px-3 text-xs text-gray-500 bg-white border-r border-gray-200 outline-hidden">
+                    <option>All Categories</option>
+                    <option>Fashion</option>
+                    <option>Electronics</option>
+                    <option>Furniture</option>
+                </select>
+                <input type="text" placeholder="Search in..." class="flex-1 px-3 text-xs outline-hidden" />
+                <button type="submit" class="px-4 text-gray-700 hover:text-primary">
+                    <i class="ri-search-line text-lg"></i>
+                </button>
+            </form>
+
+            <!-- ডানে: ফোন + আইকন -->
+            <div class="flex items-center gap-5">
+
+                <!-- ফোন (শুধু বড় স্ক্রিনে) -->
+                <div class="hidden xl:flex items-center gap-3 pr-5 border-r border-gray-200">
+                    <i class="ri-phone-line text-4xl text-gray-700"></i>
+                    <div class="leading-tight">
+                        <p class="text-xs text-gray-500">Live Chat or :</p>
+                        <p class="text-sm font-bold text-gray-800">0(800)123-456</p>
+                    </div>
+                </div>
+
+                <!-- Wishlist -->
+                <a href="#" class="hidden sm:flex flex-col items-center text-gray-700 hover:text-primary">
+                    <i class="ri-heart-line text-3xl leading-none"></i>
+                    <span class="text-[11px] mt-1">Wishlist</span>
+                </a>
+
+                <!-- Compare -->
+                <a href="#" class="hidden sm:flex flex-col items-center text-gray-700 hover:text-primary">
+                    <i class="ri-scales-3-line text-3xl leading-none"></i>
+                    <span class="text-[11px] mt-1">Compare</span>
+                </a>
+
+                <!-- Cart -->
+                <a href="#" class="relative flex flex-col items-center text-gray-700 hover:text-primary">
+                    <i class="ri-shopping-bag-line text-3xl leading-none"></i>
+                    <span class="text-[11px] mt-1 hidden sm:block">Cart</span>
+                    <span
+                        class="absolute -top-1 -right-2 w-4 h-4 rounded-full bg-primary text-white text-[10px] flex items-center justify-center">
+                        0
+                    </span>
+                </a>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- ========== MAIN NAVBAR (শুধু ডেস্কটপে) ========== -->
+    <nav class="hidden lg:block bg-white border-y border-gray-200">
+        <!-- <div class="max-w-[1200px] mx-auto px-4 h-[42px] flex items-center justify-between"> -->
+        <div class="relative max-w-[1200px] mx-auto px-4 h-[42px] flex items-center justify-between">
+
+            <!-- বাম দিক: Browse Categories + মেনু -->
+            <div class="flex items-center h-full">
+
+                <!-- Browse Categories বাটন -->
+                <!-- <button type="button"
+                    class="w-[225px] h-full px-4 bg-gray-100 flex items-center justify-between text-xs font-bold uppercase text-gray-800 hover:text-primary">
+                    <span class="flex items-center gap-2">
+                        <i class="ri-list-unordered text-base"></i>
+                        Browse Categories
+                    </span>
+                    <i class="ri-arrow-down-s-line text-base"></i>
+                </button> -->
+
+                <!-- Browse Categories (বাটন + সাইডবার) -->
+                <div class="group/cat relative h-full">
+
+                    <!-- বাটন -->
+                    <button type="button"
+                        class="w-[225px] h-full px-4 bg-gray-100 flex items-center justify-between text-xs font-bold uppercase text-gray-800 group-hover/cat:text-primary">
+                        <span class="flex items-center gap-2">
+                            <i class="ri-list-unordered text-base"></i>
+                            Browse Categories
+                        </span>
+                        <i class="ri-arrow-down-s-line text-base transition-transform group-hover/cat:rotate-180"></i>
+                    </button>
+
+                    <!-- সাইডবার লিস্ট -->
+                    <div class="absolute top-full left-0 z-50 w-[225px] bg-white shadow-lg
+                            invisible opacity-0 translate-y-2
+                            group-hover/cat:visible group-hover/cat:opacity-100 group-hover/cat:translate-y-0
+                            transition-all duration-200">
+
+                        <ul class="px-2 py-1 text-[13px] font-medium text-gray-700">
+
+                            <!-- Fashion (মেগা প্যানেল আছে) -->
+                            <li class="group/item">
+                                <a href="#"
+                                    class="flex items-center justify-between px-3 py-2.5 border-b border-gray-100 group-hover/item:text-primary">
+                                    <span class="flex items-center gap-3">
+                                        <i class="ri-t-shirt-line text-base"></i> Fashion
+                                    </span>
+                                    <i class="ri-arrow-right-s-line text-sm text-gray-400"></i>
+                                </a>
+
+                                <!-- প্যানেল -->
+                                <div class="absolute top-0 left-full z-50 w-[540px] bg-white shadow-lg flex
+                                    invisible opacity-0 translate-x-2
+                                    group-hover/item:visible group-hover/item:opacity-100 group-hover/item:translate-x-0
+                                    transition-all duration-200">
+
+                                    <div class="flex-1 grid grid-cols-2 gap-6 p-6">
+                                        <div>
+                                            <h4
+                                                class="mb-3 pb-2 border-b border-gray-200 text-xs font-bold uppercase text-gray-800">
+                                                Women</h4>
+                                            <ul class="space-y-2 text-[13px] font-normal text-gray-500">
+                                                <li><a href="#" class="hover:text-primary">New Arrivals</a></li>
+                                                <li><a href="#" class="hover:text-primary">Best Sellers</a></li>
+                                                <li><a href="#" class="hover:text-primary">Trending</a></li>
+                                                <li><a href="#" class="hover:text-primary">Clothing</a></li>
+                                                <li><a href="#" class="hover:text-primary">Shoes</a></li>
+                                                <li><a href="#" class="hover:text-primary">Bags</a></li>
+                                                <li><a href="#" class="hover:text-primary">Accessories</a></li>
+                                                <li><a href="#" class="hover:text-primary">Jewelry &amp; Watches</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <h4
+                                                class="mb-3 pb-2 border-b border-gray-200 text-xs font-bold uppercase text-gray-800">
+                                                Men</h4>
+                                            <ul class="space-y-2 text-[13px] font-normal text-gray-500">
+                                                <li><a href="#" class="hover:text-primary">New Arrivals</a></li>
+                                                <li><a href="#" class="hover:text-primary">Best Sellers</a></li>
+                                                <li><a href="#" class="hover:text-primary">Trending</a></li>
+                                                <li><a href="#" class="hover:text-primary">Clothing</a></li>
+                                                <li><a href="#" class="hover:text-primary">Shoes</a></li>
+                                                <li><a href="#" class="hover:text-primary">Bags</a></li>
+                                                <li><a href="#" class="hover:text-primary">Accessories</a></li>
+                                                <li><a href="#" class="hover:text-primary">Jewelry &amp; Watches</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <!-- প্রোমো বক্স (ছবির জায়গা) -->
+                                    <div class="w-[190px] p-5 bg-gray-200 bg-linear-to-b from-gray-100 to-gray-300">
+                                        <p class="text-xs text-gray-600">Get up to <span
+                                                class="font-bold text-primary">20% OFF</span></p>
+                                        <p class="mt-1 text-xl font-bold text-gray-900">Hot Sales</p>
+                                        <a href="#"
+                                            class="mt-3 inline-block text-[11px] font-bold uppercase text-gray-900 hover:text-primary">Shop
+                                            Now →</a>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <!-- Home & Garden (সাধারণ) -->
+                            <li>
+                                <a href="#"
+                                    class="flex items-center justify-between px-3 py-2.5 border-b border-gray-100 hover:text-primary">
+                                    <span class="flex items-center gap-3"><i class="ri-home-line text-base"></i> Home
+                                        &amp; Garden</span>
+                                    <i class="ri-arrow-right-s-line text-sm text-gray-400"></i>
+                                </a>
+                            </li>
+
+                            <!-- Electronics (মেগা প্যানেল আছে) -->
+                            <li class="group/item">
+                                <a href="#"
+                                    class="flex items-center justify-between px-3 py-2.5 border-b border-gray-100 group-hover/item:text-primary">
+                                    <span class="flex items-center gap-3">
+                                        <i class="ri-computer-line text-base"></i> Electronics
+                                    </span>
+                                    <i class="ri-arrow-right-s-line text-sm text-gray-400"></i>
+                                </a>
+
+                                <div class="absolute top-0 left-full z-50 w-[560px] bg-white shadow-lg flex
+                                    invisible opacity-0 translate-x-2
+                                    group-hover/item:visible group-hover/item:opacity-100 group-hover/item:translate-x-0
+                                    transition-all duration-200">
+
+                                    <div class="flex-1 grid grid-cols-2 gap-x-6 gap-y-5 p-6">
+                                        <div>
+                                            <h4
+                                                class="mb-3 pb-2 border-b border-gray-200 text-xs font-bold uppercase text-gray-800">
+                                                Laptops &amp; Computers</h4>
+                                            <ul class="space-y-2 text-[13px] font-normal text-gray-500">
+                                                <li><a href="#" class="hover:text-primary">Desktop Computers</a></li>
+                                                <li><a href="#" class="hover:text-primary">Monitors</a></li>
+                                                <li><a href="#" class="hover:text-primary">Laptops</a></li>
+                                                <li><a href="#" class="hover:text-primary">Hard Drives &amp; Storage</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <h4
+                                                class="mb-3 pb-2 border-b border-gray-200 text-xs font-bold uppercase text-gray-800">
+                                                Digital Cameras</h4>
+                                            <ul class="space-y-2 text-[13px] font-normal text-gray-500">
+                                                <li><a href="#" class="hover:text-primary">Digital SLR Cameras</a></li>
+                                                <li><a href="#" class="hover:text-primary">Action Cameras</a></li>
+                                                <li><a href="#" class="hover:text-primary">Camera Lenses</a></li>
+                                                <li><a href="#" class="hover:text-primary">Photo Printer</a></li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <h4
+                                                class="mb-3 pb-2 border-b border-gray-200 text-xs font-bold uppercase text-gray-800">
+                                                TV &amp; Video</h4>
+                                            <ul class="space-y-2 text-[13px] font-normal text-gray-500">
+                                                <li><a href="#" class="hover:text-primary">TVs</a></li>
+                                                <li><a href="#" class="hover:text-primary">Home Audio Speakers</a></li>
+                                                <li><a href="#" class="hover:text-primary">Projectors</a></li>
+                                                <li><a href="#" class="hover:text-primary">Media Streaming Devices</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <h4
+                                                class="mb-3 pb-2 border-b border-gray-200 text-xs font-bold uppercase text-gray-800">
+                                                Cell Phones</h4>
+                                            <ul class="space-y-2 text-[13px] font-normal text-gray-500">
+                                                <li><a href="#" class="hover:text-primary">Carrier Phones</a></li>
+                                                <li><a href="#" class="hover:text-primary">Unlocked Phones</a></li>
+                                                <li><a href="#" class="hover:text-primary">Phone Cases</a></li>
+                                                <li><a href="#" class="hover:text-primary">Chargers</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <!-- ডার্ক প্রোমো বক্স -->
+                                    <div class="w-[190px] p-5 bg-gray-900 text-white">
+                                        <p class="text-xs text-gray-300">Deals Of The Week</p>
+                                        <p class="mt-1 text-lg font-bold leading-snug">Save On Smart EarPhone</p>
+                                        <p class="mt-1 text-xl font-bold text-secondary">20% OFF</p>
+                                        <a href="#"
+                                            class="mt-4 inline-block px-4 py-2 border border-white text-[11px] font-bold uppercase hover:bg-white hover:text-gray-900 transition-colors">Shop
+                                            Now</a>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <!-- Furniture (৪ কলাম + ২ ব্যানার) -->
+                            <li class="group/item">
+                                <a href="#"
+                                    class="flex items-center justify-between px-3 py-2.5 border-b border-gray-100 group-hover/item:text-primary">
+                                    <span class="flex items-center gap-3">
+                                        <i class="ri-sofa-line text-base"></i> Furniture
+                                    </span>
+                                    <i class="ri-arrow-right-s-line text-sm text-gray-400"></i>
+                                </a>
+
+                                <div class="absolute top-0 left-full z-50 w-[700px] p-6 bg-white shadow-lg
+                                    invisible opacity-0 translate-x-2
+                                    group-hover/item:visible group-hover/item:opacity-100 group-hover/item:translate-x-0
+                                    transition-all duration-200">
+
+                                    <div class="grid grid-cols-4 gap-6">
+                                        <div>
+                                            <h4
+                                                class="mb-3 pb-2 border-b border-gray-200 text-xs font-bold uppercase text-gray-800">
+                                                Furniture</h4>
+                                            <ul class="space-y-2 text-[13px] font-normal text-gray-500">
+                                                <li><a href="#" class="hover:text-primary">Sofas &amp; Couches</a></li>
+                                                <li><a href="#" class="hover:text-primary">Armchairs</a></li>
+                                                <li><a href="#" class="hover:text-primary">Bed Frames</a></li>
+                                                <li><a href="#" class="hover:text-primary">Beside Tables</a></li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <h4
+                                                class="mb-3 pb-2 border-b border-gray-200 text-xs font-bold uppercase text-gray-800">
+                                                Lighting</h4>
+                                            <ul class="space-y-2 text-[13px] font-normal text-gray-500">
+                                                <li><a href="#" class="hover:text-primary">Light Bulbs</a></li>
+                                                <li><a href="#" class="hover:text-primary">Lamps</a></li>
+                                                <li><a href="#" class="hover:text-primary">Ceiling Lights</a></li>
+                                                <li><a href="#" class="hover:text-primary">Wall Lights</a></li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <h4
+                                                class="mb-3 pb-2 border-b border-gray-200 text-xs font-bold uppercase text-gray-800">
+                                                Home Accessories</h4>
+                                            <ul class="space-y-2 text-[13px] font-normal text-gray-500">
+                                                <li><a href="#" class="hover:text-primary">Decorative</a></li>
+                                                <li><a href="#" class="hover:text-primary">Candles</a></li>
+                                                <li><a href="#" class="hover:text-primary">Mirrors</a></li>
+                                                <li><a href="#" class="hover:text-primary">Clocks</a></li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <h4
+                                                class="mb-3 pb-2 border-b border-gray-200 text-xs font-bold uppercase text-gray-800">
+                                                Garden</h4>
+                                            <ul class="space-y-2 text-[13px] font-normal text-gray-500">
+                                                <li><a href="#" class="hover:text-primary">Garden Furniture</a></li>
+                                                <li><a href="#" class="hover:text-primary">Lawn Mowers</a></li>
+                                                <li><a href="#" class="hover:text-primary">Pressure Washers</a></li>
+                                                <li><a href="#" class="hover:text-primary">Outdoor Dining</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <!-- ২টা ব্যানার -->
+                                    <div class="mt-6 grid grid-cols-2 gap-4">
+                                        <a href="#" class="block p-5 h-[100px] bg-gray-300 text-right">
+                                            <p class="text-[11px] text-gray-600">New Arrivals</p>
+                                            <p class="text-base font-bold text-gray-900">Amazing Sofa</p>
+                                            <p class="text-[11px] text-gray-700">Starting at $125.00</p>
+                                        </a>
+                                        <a href="#" class="block p-5 h-[100px] bg-stone-300">
+                                            <p class="text-[11px] text-gray-600">Best Seller</p>
+                                            <p class="text-base font-bold text-gray-900">Chair &amp; Lamp</p>
+                                            <p class="text-[11px] text-gray-700">From $165.00</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <!-- বাকি সাধারণ আইটেম -->
+                            <li><a href="#"
+                                    class="flex items-center gap-3 px-3 py-2.5 border-b border-gray-100 hover:text-primary"><i
+                                        class="ri-heart-pulse-line text-base"></i> Health &amp; Beauty</a></li>
+                            <li><a href="#"
+                                    class="flex items-center gap-3 px-3 py-2.5 border-b border-gray-100 hover:text-primary"><i
+                                        class="ri-gift-line text-base"></i> Gift Ideas</a></li>
+                            <li><a href="#"
+                                    class="flex items-center gap-3 px-3 py-2.5 border-b border-gray-100 hover:text-primary"><i
+                                        class="ri-gamepad-line text-base"></i> Toy &amp; Games</a></li>
+                            <li><a href="#"
+                                    class="flex items-center gap-3 px-3 py-2.5 border-b border-gray-100 hover:text-primary"><i
+                                        class="ri-restaurant-line text-base"></i> Cooking</a></li>
+                            <li><a href="#"
+                                    class="flex items-center gap-3 px-3 py-2.5 border-b border-gray-100 hover:text-primary"><i
+                                        class="ri-smartphone-line text-base"></i> Smart Phones</a></li>
+                            <li><a href="#"
+                                    class="flex items-center gap-3 px-3 py-2.5 border-b border-gray-100 hover:text-primary"><i
+                                        class="ri-camera-line text-base"></i> Cameras &amp; Photo</a></li>
+                            <li><a href="#" class="flex items-center gap-3 px-3 py-2.5 hover:text-primary"><i
+                                        class="ri-vip-diamond-line text-base"></i> Accessories</a></li>
+                        </ul>
+
+                        <a href="#"
+                            class="block px-5 py-3 border-t border-gray-100 text-[11px] font-bold uppercase text-primary hover:text-secondary">
+                            View All Categories →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- মেইন মেনু -->
+                <ul class="h-full flex items-center gap-8 ml-8 text-[13px] font-semibold text-gray-800">
+
+                    <!-- Home (active) -->
+                    <li class="h-full">
+                        <a href="#" class="h-full flex items-center border-b-2 border-primary text-primary">
+                            Home
+                        </a>
+                    </li>
+
+                    <!-- Shop (মেগা মেনু ধাপ ৬ এ হবে) -->
+                    <!-- <li class="group relative h-full">
+                        <a href="#"
+                            class="h-full flex items-center gap-1 border-b-2 border-transparent group-hover:text-primary group-hover:border-primary">
+                            Shop
+                            <i
+                                class="ri-arrow-down-s-line text-sm text-gray-400 transition-transform group-hover:rotate-180"></i>
+                        </a>
+                    </li> -->
+
+                    <!-- Shop (Mega Menu) -->
+                    <li class="group h-full">
+                        <a href="#"
+                            class="h-full flex items-center gap-1 border-b-2 border-transparent group-hover:text-primary group-hover:border-primary">
+                            Shop
+                            <i
+                                class="ri-arrow-down-s-line text-sm text-gray-400 transition-transform group-hover:rotate-180"></i>
+                        </a>
+
+                        <!-- মেগা মেনু বক্স -->
+                        <div class="absolute top-full left-[257px] z-50 w-[640px] p-6 bg-white shadow-lg
+                        invisible opacity-0 translate-y-2
+                        group-hover:visible group-hover:opacity-100 group-hover:translate-y-0
+                        transition-all duration-200">
+
+                            <div class="grid grid-cols-4 gap-6">
+
+                                <!-- কলাম ১: Shop Pages -->
+                                <div>
+                                    <h4 class="mb-3 text-xs font-bold uppercase text-gray-800">Shop Pages</h4>
+                                    <ul class="space-y-2 text-[13px] font-normal text-gray-500">
+                                        <li><a href="#" class="hover:text-primary">Banner With Sidebar</a></li>
+                                        <li><a href="#" class="hover:text-primary">Boxed Banner</a></li>
+                                        <li><a href="#" class="hover:text-primary">Full Width Banner</a></li>
+                                        <li>
+                                            <a href="#" class="hover:text-primary">Horizontal Filter</a>
+                                            <span
+                                                class="ml-1 px-1.5 py-0.5 rounded-sm bg-secondary text-white text-[9px] font-bold uppercase">Hot</span>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="hover:text-primary">Off Canvas Sidebar</a>
+                                            <span
+                                                class="ml-1 px-1.5 py-0.5 rounded-sm bg-primary text-white text-[9px] font-bold uppercase">New</span>
+                                        </li>
+                                        <li><a href="#" class="hover:text-primary">Infinite Ajax Scroll</a></li>
+                                        <li><a href="#" class="hover:text-primary">Right Sidebar</a></li>
+                                        <li><a href="#" class="hover:text-primary">Full Width Sidebar</a></li>
+                                    </ul>
+                                </div>
+
+                                <!-- কলাম ২: Shop Layouts -->
+                                <div>
+                                    <h4 class="mb-3 text-xs font-bold uppercase text-gray-800">Shop Layouts</h4>
+                                    <ul class="space-y-2 text-[13px] font-normal text-gray-500">
+                                        <li><a href="#" class="hover:text-primary">3 Columns Mode</a></li>
+                                        <li><a href="#" class="hover:text-primary">4 Columns Mode</a></li>
+                                        <li><a href="#" class="hover:text-primary">5 Columns Mode</a></li>
+                                        <li><a href="#" class="hover:text-primary">6 Columns Mode</a></li>
+                                        <li><a href="#" class="hover:text-primary">7 Columns Mode</a></li>
+                                        <li><a href="#" class="hover:text-primary">8 Columns Mode</a></li>
+                                        <li><a href="#" class="hover:text-primary">List Mode</a></li>
+                                        <li><a href="#" class="hover:text-primary">List Mode With Sidebar</a></li>
+                                    </ul>
+                                </div>
+
+                                <!-- কলাম ৩: Product Pages -->
+                                <div>
+                                    <h4 class="mb-3 text-xs font-bold uppercase text-gray-800">Product Pages</h4>
+                                    <ul class="space-y-2 text-[13px] font-normal text-gray-500">
+                                        <li><a href="#" class="hover:text-primary">Variable Product</a></li>
+                                        <li><a href="#" class="hover:text-primary">Featured &amp; Sale</a></li>
+                                        <li><a href="#" class="hover:text-primary">Data In Accordion</a></li>
+                                        <li><a href="#" class="hover:text-primary">Data In Sections</a></li>
+                                        <li><a href="#" class="hover:text-primary">Image Swatch</a></li>
+                                        <li><a href="#" class="hover:text-primary">Extended Info</a></li>
+                                        <li><a href="#" class="hover:text-primary">Without Sidebar</a></li>
+                                        <li>
+                                            <a href="#" class="hover:text-primary">360° &amp; Video</a>
+                                            <span
+                                                class="ml-1 px-1.5 py-0.5 rounded-sm bg-primary text-white text-[9px] font-bold uppercase">New</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <!-- কলাম ৪: Product Layouts -->
+                                <div>
+                                    <h4 class="mb-3 text-xs font-bold uppercase text-gray-800">Product Layouts</h4>
+                                    <ul class="space-y-2 text-[13px] font-normal text-gray-500">
+                                        <li>
+                                            <a href="#" class="hover:text-primary">Default</a>
+                                            <span
+                                                class="ml-1 px-1.5 py-0.5 rounded-sm bg-secondary text-white text-[9px] font-bold uppercase">Hot</span>
+                                        </li>
+                                        <li><a href="#" class="hover:text-primary">Vertical Thumbs</a></li>
+                                        <li><a href="#" class="hover:text-primary">Grid Images</a></li>
+                                        <li><a href="#" class="hover:text-primary">Masonry</a></li>
+                                        <li><a href="#" class="hover:text-primary">Gallery</a></li>
+                                        <li><a href="#" class="hover:text-primary">Sticky Info</a></li>
+                                        <li><a href="#" class="hover:text-primary">Sticky Thumbs</a></li>
+                                        <li><a href="#" class="hover:text-primary">Sticky Both</a></li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Vendor (Dropdown) -->
+                    <li class="group relative h-full">
+                        <a href="#"
+                            class="h-full flex items-center gap-1 border-b-2 border-transparent group-hover:text-primary group-hover:border-primary">
+                            Vendor
+                            <i
+                                class="ri-arrow-down-s-line text-sm text-gray-400 transition-transform group-hover:rotate-180"></i>
+                        </a>
+
+                        <!-- ড্রপডাউন বক্স -->
+                        <ul class="absolute top-full left-0 z-50 w-[200px] py-3 bg-white shadow-lg
+                        invisible opacity-0 translate-y-2
+                        group-hover:visible group-hover:opacity-100 group-hover:translate-y-0
+                        transition-all duration-200
+                        text-[13px] font-normal text-gray-500">
+                            <li><a href="#" class="block px-5 py-1.5 hover:text-primary">Dokan Store List</a></li>
+                            <li><a href="#" class="block px-5 py-1.5 hover:text-primary">WC Marketplace</a></li>
+                            <li><a href="#" class="block px-5 py-1.5 hover:text-primary">WCFM Store</a></li>
+                            <li><a href="#" class="block px-5 py-1.5 hover:text-primary">WC Vendors</a></li>
+                            <li><a href="#" class="block px-5 py-1.5 hover:text-primary">Vendor Dashboard</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Blog (Dropdown + Nested Submenu) -->
+                    <li class="group relative h-full">
+                        <a href="#"
+                            class="h-full flex items-center gap-1 border-b-2 border-transparent group-hover:text-primary group-hover:border-primary">
+                            Blog
+                            <i
+                                class="ri-arrow-down-s-line text-sm text-gray-400 transition-transform group-hover:rotate-180"></i>
+                        </a>
+
+                        <!-- লেভেল ১: মূল ড্রপডাউন -->
+                        <ul class="absolute top-full left-0 z-50 w-[200px] py-3 bg-white shadow-lg
+                       invisible opacity-0 translate-y-2
+                       group-hover:visible group-hover:opacity-100 group-hover:translate-y-0
+                       transition-all duration-200
+                       text-[13px] font-normal text-gray-500">
+
+                            <li><a href="#" class="block px-5 py-1.5 hover:text-primary">Classic</a></li>
+                            <li><a href="#" class="block px-5 py-1.5 hover:text-primary">Listing</a></li>
+
+                            <!-- Grid (সাবমেনু আছে) -->
+                            <li class="group/sub relative">
+                                <a href="#"
+                                    class="flex items-center justify-between px-5 py-1.5 group-hover/sub:text-primary">
+                                    Grid
+                                    <i class="ri-arrow-right-s-line text-sm text-gray-400"></i>
+                                </a>
+
+                                <!-- লেভেল ২: সাবমেনু -->
+                                <ul class="absolute top-0 left-full z-50 w-[200px] py-3 bg-white shadow-lg
+                           invisible opacity-0 translate-x-2
+                           group-hover/sub:visible group-hover/sub:opacity-100 group-hover/sub:translate-x-0
+                           transition-all duration-200">
+                                    <li><a href="#" class="block px-5 py-1.5 hover:text-primary">Grid 2 Columns</a></li>
+                                    <li><a href="#" class="block px-5 py-1.5 hover:text-primary">Grid 3 Columns</a></li>
+                                    <li><a href="#" class="block px-5 py-1.5 hover:text-primary">Grid 4 Columns</a></li>
+                                    <li><a href="#" class="block px-5 py-1.5 hover:text-primary">Grid Sidebar</a></li>
+                                </ul>
+                            </li>
+
+                            <!-- Masonry (সাবমেনু আছে) -->
+                            <li class="group/sub relative">
+                                <a href="#"
+                                    class="flex items-center justify-between px-5 py-1.5 group-hover/sub:text-primary">
+                                    Masonry
+                                    <i class="ri-arrow-right-s-line text-sm text-gray-400"></i>
+                                </a>
+
+                                <ul class="absolute top-0 left-full z-50 w-[200px] py-3 bg-white shadow-lg
+                           invisible opacity-0 translate-x-2
+                           group-hover/sub:visible group-hover/sub:opacity-100 group-hover/sub:translate-x-0
+                           transition-all duration-200">
+                                    <li><a href="#" class="block px-5 py-1.5 hover:text-primary">Masonry 2 Columns</a>
+                                    </li>
+                                    <li><a href="#" class="block px-5 py-1.5 hover:text-primary">Masonry 3 Columns</a>
+                                    </li>
+                                    <li><a href="#" class="block px-5 py-1.5 hover:text-primary">Masonry 4 Columns</a>
+                                    </li>
+                                    <li><a href="#" class="block px-5 py-1.5 hover:text-primary">Masonry Sidebar</a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <!-- Mask (সাবমেনু আছে) -->
+                            <li class="group/sub relative">
+                                <a href="#"
+                                    class="flex items-center justify-between px-5 py-1.5 group-hover/sub:text-primary">
+                                    Mask
+                                    <i class="ri-arrow-right-s-line text-sm text-gray-400"></i>
+                                </a>
+
+                                <ul class="absolute top-0 left-full z-50 w-[200px] py-3 bg-white shadow-lg
+                           invisible opacity-0 translate-x-2
+                           group-hover/sub:visible group-hover/sub:opacity-100 group-hover/sub:translate-x-0
+                           transition-all duration-200">
+                                    <li><a href="#" class="block px-5 py-1.5 hover:text-primary">Mask 2 Columns</a></li>
+                                    <li><a href="#" class="block px-5 py-1.5 hover:text-primary">Mask 3 Columns</a></li>
+                                    <li><a href="#" class="block px-5 py-1.5 hover:text-primary">Mask 4 Columns</a></li>
+                                </ul>
+                            </li>
+
+                            <li><a href="#" class="block px-5 py-1.5 hover:text-primary">Single Post</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Pages (পরে হবে) -->
+                    <li class="group relative h-full">
+                        <a href="#"
+                            class="h-full flex items-center gap-1 border-b-2 border-transparent group-hover:text-primary group-hover:border-primary">
+                            Pages
+                            <i
+                                class="ri-arrow-down-s-line text-sm text-gray-400 transition-transform group-hover:rotate-180"></i>
+                        </a>
+                    </li>
+
+                    <!-- Elements -->
+                    <li class="h-full">
+                        <a href="#"
+                            class="h-full flex items-center border-b-2 border-transparent hover:text-primary hover:border-primary">
+                            Elements
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <!-- ডান দিক: Track Order + Daily Deals -->
+            <div class="flex items-center gap-8 text-[13px] font-semibold text-gray-800">
+                <a href="#" class="flex items-center gap-2 hover:text-primary">
+                    <i class="ri-map-pin-line text-xl"></i>
+                    Track Order
+                </a>
+                <a href="#" class="flex items-center gap-2 hover:text-primary">
+                    <i class="ri-price-tag-3-line text-xl"></i>
+                    Daily Deals
+                </a>
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- ========== MOBILE DRAWER ========== -->
+
+    <!-- Overlay (কালো পর্দা) -->
+    <div id="menu-overlay"
+        class="fixed inset-0 z-40 bg-black/60 invisible opacity-0 transition-all duration-300 lg:hidden"></div>
+
+    <!-- Drawer -->
+    <aside id="mobile-menu" class="fixed top-0 left-0 z-50 h-full w-[300px] max-w-[85%] bg-neutral-800 text-white
+           -translate-x-full transition-transform duration-300 lg:hidden
+           flex flex-col">
+        <!-- বন্ধ করার বাটন -->
+        <div class="flex justify-end p-4">
+            <button id="menu-close" class="text-3xl text-white hover:text-secondary" aria-label="Close menu">
+                <i class="ri-close-line"></i>
+            </button>
+        </div>
+
+        <!-- ভেতরের কনটেন্ট (ধাপ ৯, ১০ এ সাজাব) -->
+        <div class="flex-1 overflow-y-auto px-5 pb-6">
+            <ul class="text-sm font-medium">
+                <li class="border-b border-white/10"><a href="#" class="block py-3">Home</a></li>
+                <li class="border-b border-white/10"><a href="#" class="block py-3">Shop</a></li>
+                <li class="border-b border-white/10"><a href="#" class="block py-3">Vendor</a></li>
+                <li class="border-b border-white/10"><a href="#" class="block py-3">Blog</a></li>
+                <li class="border-b border-white/10"><a href="#" class="block py-3">Pages</a></li>
+                <li class="border-b border-white/10"><a href="#" class="block py-3">Elements</a></li>
+            </ul>
+        </div>
+    </aside>
+
+    <script>
+        const openBtn = document.getElementById('menu-open');
+        const closeBtn = document.getElementById('menu-close');
+        const overlay = document.getElementById('menu-overlay');
+        const drawer = document.getElementById('mobile-menu');
+
+        function openMenu() {
+            drawer.classList.remove('-translate-x-full');
+            overlay.classList.remove('invisible', 'opacity-0');
+            document.body.classList.add('overflow-hidden');
+        }
+
+        function closeMenu() {
+            drawer.classList.add('-translate-x-full');
+            overlay.classList.add('invisible', 'opacity-0');
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        openBtn.addEventListener('click', openMenu);
+        closeBtn.addEventListener('click', closeMenu);
+        overlay.addEventListener('click', closeMenu);
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') closeMenu();
+        });
+    </script>
+</body>
+
+</html>
