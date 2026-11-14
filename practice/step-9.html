@@ -670,7 +670,8 @@
         </div>
     </aside> -->
 
-    <aside id="mobile-menu" class="fixed top-0 left-0 w-[300px] max-w-[85%] bg-black text-white flex flex-col h-full -translate-x-full lg:hidden transition-transform duration-300 overflow-y-auto">
+    <aside id="mobile-menu"
+        class="fixed top-0 left-0 w-[300px] max-w-[85%] bg-black text-white flex flex-col h-full -translate-x-full lg:hidden transition-transform duration-300 overflow-y-auto">
         <div class="flex justify-end p-6">
             <button id="menu-close" type="button" class="font-bold text-xl">
                 <i class="ri-close-large-line"></i>
@@ -678,99 +679,108 @@
         </div>
 
         <div class="px-6 text-sm grid grid-cols-2">
-            <button class="tab-btn border-b-2 border-white py-2.5 font-semibold text-white" data-tab="main">Main Menu</button>
-            <button class="tab-btn border-b-2 border-white/10 py-2.5 font-semibold text-gray-500" data-tab="cats">Categories</button>
+            <button class="tab-btn border-b-2 border-white py-2.5 font-semibold text-white" data-tab="main">Main
+                Menu</button>
+            <button class="tab-btn border-b-2 border-white/10 py-2.5 font-semibold text-gray-500"
+                data-tab="cats">Categories</button>
         </div>
-        
+
         <div class="px-6 text-sm py-3">
             <div id="tab-main" class="tab-panel">
                 <ul class="">
-                    <li class=""><a href="" class="block py-3 border-b border-white/10 font-semibold">Home</a></li>
-                    <li class="">
+                    <li class="border-b border-white/10"><a href="" class="block py-3 font-semibold">Home</a></li>
+                    <li class="border-b border-white/10">
                         <button data-acc class="flex items-center justify-between w-full py-3 font-semibold">
                             Shop
-                            <i class="ri-arrow-right-s-line"></i>
+                            <i class="acc-icon ri-arrow-right-s-line"></i>
                         </button>
-                        <div class="grid grid-rows-[0fr] pl-3">
-                            <ul class="overflow-hidden">
+
+                        <!-- V2 -->
+                        <!-- <div data-open="false"
+                            class="grid grid-rows-[0fr] data-[open=true]:grid-rows-[1fr] transition-[grid-template-rows] duration-300"> -->
+                        <!-- V1 -->
+                        <div class="grid pl-3 grid-rows-[0fr] transition-[grid-template-rows] duration-300">
+                            <ul class="overflow-hidden mt-2">
                                 <li class="">
-                                    <button data-acc class="flex items-center justify-between w-full pb-3">
+                                    <button data-acc
+                                        class="flex items-center justify-between w-full pb-4 text-white/80">
                                         Shop Pages
-                                        <i class="ri-arrow-right-s-line"></i>
+                                        <i class="acc-icon ri-arrow-right-s-line"></i>
                                     </button>
-                                    <div class="grid grid-rows-[0fr] pl-3">
-                                        <ul class="overflow-hidden">
+                                    <div class="grid pl-3 grid-rows-[0fr] transition-[grid-template-rows] duration-300">
+                                        <ul class="overflow-hidden mt-2">
                                             <li class="">
-                                                <a href="" class="block pb-3">Banner With Sidebar</a>
+                                                <a href="" class="block pb-4 text-white/50">Banner With Sidebar</a>
                                             </li>
                                             <li class="">
-                                                <a href="" class="block pb-3">Boxed Banner</a>
+                                                <a href="" class="block pb-4 text-white/50">Boxed Banner</a>
                                             </li>
                                             <li class="">
-                                                <a href="" class="block pb-3">Full Width Banner</a>
+                                                <a href="" class="block pb-4 text-white/50">Full Width Banner</a>
                                             </li>
                                             <li class="">
-                                                <a href="" class="block pb-3">Horizontal Filter</a>
+                                                <a href="" class="block pb-4 text-white/50">Horizontal Filter</a>
                                             </li>
                                         </ul>
                                     </div>
                                 </li>
                                 <li class="">
-                                    <button class="flex items-center justify-between w-full pb-3">
+                                    <button data-acc
+                                        class="flex items-center justify-between w-full pb-4 text-white/80">
                                         Shop Layouts
-                                        <i class="ri-arrow-right-s-line"></i>
+                                        <i class="acc-icon ri-arrow-right-s-line"></i>
                                     </button>
-                                    <div class="pl-3">
-                                        <ul class="">
+                                    <div class="grid pl-3 grid-rows-[0fr] transition-[grid-template-rows] duration-300">
+                                        <ul class="overflow-hidden mt-2">
                                             <li class="">
-                                                <a href="" class="block pb-3">3 Columns Mode</a>
+                                                <a href="" class="block pb-4 text-white/50">3 Columns Mode</a>
                                             </li>
                                             <li class="">
-                                                <a href="" class="block pb-3">4 Columns Mode</a>
+                                                <a href="" class="block pb-4 text-white/50">4 Columns Mode</a>
                                             </li>
                                             <li class="">
-                                                <a href="" class="block pb-3">List Mode</a>
+                                                <a href="" class="block pb-4 text-white/50">List Mode</a>
                                             </li>
                                             <li class="">
-                                                <a href="" class="block pb-3">List Mode With Sidebar</a>
+                                                <a href="" class="block pb-4 text-white/50">List Mode With Sidebar</a>
                                             </li>
                                         </ul>
                                     </div>
                                 </li>
                                 <li class="">
-                                    <a href="" class="block pb-3">Product Pages</a>
+                                    <a href="" class="block pb-4 text-white/80">Product Pages</a>
                                 </li>
                                 <li class="">
-                                    <a href="" class="block pb-3">Product Layouts</a>
+                                    <a href="" class="block pb-4 text-white/80">Product Layouts</a>
                                 </li>
                             </ul>
                         </div>
                     </li>
-                    <li class="">
-                        <a href="" class="flex items-center justify-between py-3 border-b border-white/10 font-semibold">
+                    <li class="border-b border-white/10">
+                        <a href="" class="flex items-center justify-between py-3 font-semibold">
                             Vendor
                             <i class="ri-arrow-right-s-line"></i>
                         </a>
                     </li>
-                    <li class="">
-                        <a href="" class="flex items-center justify-between py-3 border-b border-white/10 font-semibold">
+                    <li class="border-b border-white/10">
+                        <a href="" class="flex items-center justify-between py-3 font-semibold">
                             Blog
                             <i class="ri-arrow-right-s-line"></i>
                         </a>
                     </li>
-                    <li class="">
-                        <a href="" class="flex items-center justify-between py-3 border-b border-white/10 font-semibold">
+                    <li class="border-b border-white/10">
+                        <a href="" class="flex items-center justify-between py-3 font-semibold">
                             Pages
                             <i class="ri-arrow-right-s-line"></i>
                         </a>
                     </li>
-                    <li class=""><a href="" class="block py-3 border-b border-white/10 font-semibold">Elements</a></li>
+                    <li class="border-b border-white/10"><a href="" class="block py-3 font-semibold">Elements</a></li>
                 </ul>
             </div>
             <div id="tab-cats" class="tab-panel hidden">
                 <ul class="">
-                    <li class="">
-                        <a href="" class="flex items-center justify-between py-3 border-b border-white/10 font-semibold">
+                    <li class="border-b border-white/10">
+                        <a href="" class="flex items-center justify-between py-3 font-semibold">
                             <span class="flex gap-3 items-center">
                                 <i class="ri-t-shirt-line"></i>
                                 Fashion
@@ -778,8 +788,8 @@
                             <i class="ri-arrow-right-s-line"></i>
                         </a>
                     </li>
-                    <li class="">
-                        <a href="" class="flex items-center justify-between py-3 border-b border-white/10 font-semibold">
+                    <li class="border-b border-white/10">
+                        <a href="" class="flex items-center justify-between py-3 font-semibold">
                             <span class="flex gap-3 items-center">
                                 <i class="ri-t-shirt-line"></i>
                                 Home & Garden
@@ -787,8 +797,8 @@
                             <i class="ri-arrow-right-s-line"></i>
                         </a>
                     </li>
-                    <li class="">
-                        <a href="" class="flex items-center justify-between py-3 border-b border-white/10 font-semibold">
+                    <li class="border-b border-white/10">
+                        <a href="" class="flex items-center justify-between py-3 font-semibold">
                             <span class="flex gap-3 items-center">
                                 <i class="ri-t-shirt-line"></i>
                                 Electornics
@@ -796,8 +806,8 @@
                             <i class="ri-arrow-right-s-line"></i>
                         </a>
                     </li>
-                    <li class="">
-                        <a href="" class="flex items-center justify-between py-3 border-b border-white/10 font-semibold">
+                    <li class="border-b border-white/10">
+                        <a href="" class="flex items-center justify-between py-3 font-semibold">
                             <span class="flex gap-3 items-center">
                                 <i class="ri-t-shirt-line"></i>
                                 Furniture
@@ -805,8 +815,8 @@
                             <i class="ri-arrow-right-s-line"></i>
                         </a>
                     </li>
-                    <li class="">
-                        <a href="" class="flex items-center justify-between py-3 border-b border-white/10 font-semibold">
+                    <li class="border-b border-white/10">
+                        <a href="" class="flex items-center justify-between py-3 font-semibold">
                             <span class="flex gap-3 items-center">
                                 <i class="ri-t-shirt-line"></i>
                                 Health & Beauty
@@ -814,8 +824,8 @@
                             <i class="ri-arrow-right-s-line"></i>
                         </a>
                     </li>
-                    <li class="">
-                        <a href="" class="flex items-center justify-between py-3 border-b border-white/10 font-semibold">
+                    <li class="border-b border-white/10">
+                        <a href="" class="flex items-center justify-between py-3 font-semibold">
                             <span class="flex gap-3 items-center">
                                 <i class="ri-t-shirt-line"></i>
                                 Gift Ideas
@@ -823,8 +833,8 @@
                             <i class="ri-arrow-right-s-line"></i>
                         </a>
                     </li>
-                    <li class="">
-                        <a href="" class="flex items-center justify-between py-3 border-b border-white/10 font-semibold">
+                    <li class="border-b border-white/10">
+                        <a href="" class="flex items-center justify-between py-3 font-semibold">
                             <span class="flex gap-3 items-center">
                                 <i class="ri-t-shirt-line"></i>
                                 Toy & Games
@@ -832,8 +842,8 @@
                             <i class="ri-arrow-right-s-line"></i>
                         </a>
                     </li>
-                    <li class="">
-                        <a href="" class="flex items-center justify-between py-3 border-b border-white/10 font-semibold">
+                    <li class="border-b border-white/10">
+                        <a href="" class="flex items-center justify-between py-3 font-semibold">
                             <span class="flex gap-3 items-center">
                                 <i class="ri-t-shirt-line"></i>
                                 Cooking
@@ -841,8 +851,8 @@
                             <i class="ri-arrow-right-s-line"></i>
                         </a>
                     </li>
-                    <li class="">
-                        <a href="" class="flex items-center justify-between py-3 border-b border-white/10 font-semibold">
+                    <li class="border-b border-white/10">
+                        <a href="" class="flex items-center justify-between py-3 font-semibold">
                             <span class="flex gap-3 items-center">
                                 <i class="ri-t-shirt-line"></i>
                                 Smart Phones
@@ -850,8 +860,8 @@
                             <i class="ri-arrow-right-s-line"></i>
                         </a>
                     </li>
-                    <li class="">
-                        <a href="" class="flex items-center justify-between py-3 border-b border-white/10 font-semibold">
+                    <li class="border-b border-white/10">
+                        <a href="" class="flex items-center justify-between py-3 font-semibold">
                             <span class="flex gap-3 items-center">
                                 <i class="ri-t-shirt-line"></i>
                                 Camera & Photo
@@ -859,8 +869,8 @@
                             <i class="ri-arrow-right-s-line"></i>
                         </a>
                     </li>
-                    <li class="">
-                        <a href="" class="flex items-center justify-between py-3 border-b border-white/10 font-semibold">
+                    <li class="border-b border-white/10">
+                        <a href="" class="flex items-center justify-between py-3 font-semibold">
                             <span class="flex gap-3 items-center">
                                 <i class="ri-t-shirt-line"></i>
                                 Accessories
@@ -868,7 +878,7 @@
                             <i class="ri-arrow-right-s-line"></i>
                         </a>
                     </li>
-                    <li class="">
+                    <li class="border-b border-white/10">
                         <a href="" class="flex gap-1 items-center py-3 uppercase text-primary font-semibold">
                             View all categories
                             <i class="ri-arrow-right-long-line"></i>
@@ -877,7 +887,7 @@
                 </ul>
             </div>
         </div>
-    </aside>    
+    </aside>
 
 
     <script>
@@ -909,18 +919,18 @@
         // console.log(tabBtns);
         // console.log(tabPanels);
 
-        tabBtns.forEach(function(btn){
-            btn.addEventListener('click', function(e){
+        tabBtns.forEach(function (btn) {
+            btn.addEventListener('click', function (e) {
 
-                tabBtns.forEach(function(b){
+                tabBtns.forEach(function (b) {
                     b.classList.remove('border-white', 'text-white');
                     b.classList.add('border-white/10', 'text-gray-500');
                 })
-                
+
                 btn.classList.add('border-white', 'text-white');
                 btn.classList.remove('border-white/10', 'text-gray-500');
 
-                tabPanels.forEach(function(p){
+                tabPanels.forEach(function (p) {
                     p.classList.remove('hidden');
                     p.classList.add('hidden')
                 });
@@ -930,27 +940,56 @@
             });
         });
 
-        // ================
+        // ========== Accordion (gemini) ==========
+        // document.querySelectorAll('[data-acc]').forEach(function (btn) {
+        //     btn.addEventListener('click', function () {
+        //         const panel = btn.nextElementSibling; // বাটনের ঠিক পরের div
+        //         const icon = btn.querySelector('.ri-arrow-right-s-line'); // তীর আইকন
+
+        //         // Tailwind-এর grid-rows-[0fr] থেকে grid-rows-[1fr] পরিবর্তন করার লজিক
+        //         if (panel.classList.contains('grid-rows-[0fr]')) {
+        //             panel.classList.remove('grid-rows-[0fr]');
+        //             panel.classList.add('grid-rows-[1fr]');
+        //         } else {
+        //             panel.classList.remove('grid-rows-[1fr]');
+        //             panel.classList.add('grid-rows-[0fr]');
+        //         }
+
+        //         // আইকন ঘোরানোর জন্য
+        //         if (icon) {
+        //             icon.classList.toggle('rotate-90');
+        //         }
+        //     });
+        // });
+
+        // ========= Accordion (claude: v1) =========
+
+
+        // ========= Accordion (claude: v1) =========
         document.querySelectorAll('[data-acc]').forEach(function (btn) {
+            // console.log(btn);
             btn.addEventListener('click', function () {
-                const panel = btn.nextElementSibling; // বাটনের ঠিক পরের div
-                const icon  = btn.querySelector('.ri-arrow-right-s-line'); // তীর আইকন
+                const panel = btn.nextElementSibling;
+                const icon = btn.querySelector('.acc-icon');
 
-                // Tailwind-এর grid-rows-[0fr] থেকে grid-rows-[1fr] পরিবর্তন করার লজিক
-                if (panel.classList.contains('grid-rows-[0fr]')) {
-                    panel.classList.remove('grid-rows-[0fr]');
-                    panel.classList.add('grid-rows-[1fr]');
-                } else {
-                    panel.classList.remove('grid-rows-[1fr]');
-                    panel.classList.add('grid-rows-[0fr]');
-                }
-
-                // আইকন ঘোরানোর জন্য
-                if(icon) {
-                    icon.classList.toggle('rotate-90');
-                }
+                panel.classList.toggle('grid-rows-[0fr]');
+                panel.classList.toggle('grid-rows-[1fr]');
+                icon.classList.toggle('rotate-90');
             });
         });
+
+        // ========= Accordion (claude: v2) =========
+        // document.querySelectorAll('[data-acc]').forEach(function (btn) {
+        //     // console.log(btn);
+        //     btn.addEventListener('click', function () {
+        //         const panel = btn.nextElementSibling;
+        //         const icon = btn.querySelector('.acc-icon');
+
+        //         const isOpen = panel.dataset.open === 'true';
+        //         panel.dataset.open = !isOpen;
+        //         icon.classList.toggle('rotate-90');
+        //     });
+        // });
     </script>
 </body>
 

@@ -708,68 +708,242 @@
         <!-- ট্যাব কনটেন্ট -->
         <div class="flex-1 overflow-y-auto px-5 py-3">
 
-            <!-- প্যানেল ১: MAIN MENU -->
+            <!-- ===== প্যানেল ১: MAIN MENU ===== -->
             <ul id="tab-main" class="tab-panel text-sm font-medium">
+
                 <li class="border-b border-white/10">
                     <a href="#" class="block py-3">Home</a>
                 </li>
+
+                <!-- Shop -->
                 <li class="border-b border-white/10">
-                    <a href="#" class="flex items-center justify-between py-3">
+                    <button type="button" data-acc aria-expanded="false"
+                        class="group w-full flex items-center justify-between py-3 text-left">
                         Shop
-                        <i class="ri-arrow-right-s-line text-lg text-gray-400"></i>
-                    </a>
+                        <i
+                            class="ri-arrow-right-s-line text-lg text-gray-400 transition-transform duration-300 group-aria-expanded:rotate-90"></i>
+                    </button>
+                    <div data-open="false"
+                        class="grid grid-rows-[0fr] data-[open=true]:grid-rows-[1fr] transition-[grid-template-rows] duration-300">
+                        <div class="overflow-hidden">
+                            <ul class="pb-2 pl-3 text-[13px] font-normal text-gray-300">
+                                <li><a href="#" class="block py-2">Banner With Sidebar</a></li>
+                                <li><a href="#" class="block py-2">Boxed Banner</a></li>
+                                <li><a href="#" class="block py-2">Full Width Banner</a></li>
+                                <li><a href="#" class="block py-2">Horizontal Filter</a></li>
+                                <li><a href="#" class="block py-2">Off Canvas Sidebar</a></li>
+                                <li><a href="#" class="block py-2">3 Columns Mode</a></li>
+                                <li><a href="#" class="block py-2">4 Columns Mode</a></li>
+                                <li><a href="#" class="block py-2">List Mode</a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </li>
+
+                <!-- Vendor -->
                 <li class="border-b border-white/10">
-                    <a href="#" class="flex items-center justify-between py-3">
+                    <button type="button" data-acc aria-expanded="false"
+                        class="group w-full flex items-center justify-between py-3 text-left">
                         Vendor
-                        <i class="ri-arrow-right-s-line text-lg text-gray-400"></i>
-                    </a>
+                        <i
+                            class="ri-arrow-right-s-line text-lg text-gray-400 transition-transform duration-300 group-aria-expanded:rotate-90"></i>
+                    </button>
+                    <div data-open="false"
+                        class="grid grid-rows-[0fr] data-[open=true]:grid-rows-[1fr] transition-[grid-template-rows] duration-300">
+                        <div class="overflow-hidden">
+                            <ul class="pb-2 pl-3 text-[13px] font-normal text-gray-300">
+                                <li><a href="#" class="block py-2">Dokan Store List</a></li>
+                                <li><a href="#" class="block py-2">WC Marketplace</a></li>
+                                <li><a href="#" class="block py-2">WCFM Store</a></li>
+                                <li><a href="#" class="block py-2">WC Vendors</a></li>
+                                <li><a href="#" class="block py-2">Vendor Dashboard</a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </li>
+
+                <!-- Blog (দুই স্তর) -->
                 <li class="border-b border-white/10">
-                    <a href="#" class="flex items-center justify-between py-3">
+                    <button type="button" data-acc aria-expanded="false"
+                        class="group w-full flex items-center justify-between py-3 text-left">
                         Blog
-                        <i class="ri-arrow-right-s-line text-lg text-gray-400"></i>
-                    </a>
+                        <i
+                            class="ri-arrow-right-s-line text-lg text-gray-400 transition-transform duration-300 group-aria-expanded:rotate-90"></i>
+                    </button>
+                    <div data-open="false"
+                        class="grid grid-rows-[0fr] data-[open=true]:grid-rows-[1fr] transition-[grid-template-rows] duration-300">
+                        <div class="overflow-hidden">
+                            <ul class="pb-2 pl-3 text-[13px] font-normal text-gray-300">
+                                <li><a href="#" class="block py-2">Classic</a></li>
+                                <li><a href="#" class="block py-2">Listing</a></li>
+
+                                <!-- Grid -->
+                                <li>
+                                    <button type="button" data-acc aria-expanded="false"
+                                        class="group w-full flex items-center justify-between py-2 text-left">
+                                        Grid
+                                        <i
+                                            class="ri-arrow-right-s-line text-lg text-gray-400 transition-transform duration-300 group-aria-expanded:rotate-90"></i>
+                                    </button>
+                                    <div data-open="false"
+                                        class="grid grid-rows-[0fr] data-[open=true]:grid-rows-[1fr] transition-[grid-template-rows] duration-300">
+                                        <div class="overflow-hidden">
+                                            <ul class="pl-3 text-gray-400">
+                                                <li><a href="#" class="block py-2">Grid 2 Columns</a></li>
+                                                <li><a href="#" class="block py-2">Grid 3 Columns</a></li>
+                                                <li><a href="#" class="block py-2">Grid 4 Columns</a></li>
+                                                <li><a href="#" class="block py-2">Grid Sidebar</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <!-- Masonry -->
+                                <li>
+                                    <button type="button" data-acc aria-expanded="false"
+                                        class="group w-full flex items-center justify-between py-2 text-left">
+                                        Masonry
+                                        <i
+                                            class="ri-arrow-right-s-line text-lg text-gray-400 transition-transform duration-300 group-aria-expanded:rotate-90"></i>
+                                    </button>
+                                    <div data-open="false"
+                                        class="grid grid-rows-[0fr] data-[open=true]:grid-rows-[1fr] transition-[grid-template-rows] duration-300">
+                                        <div class="overflow-hidden">
+                                            <ul class="pl-3 text-gray-400">
+                                                <li><a href="#" class="block py-2">Masonry 2 Columns</a></li>
+                                                <li><a href="#" class="block py-2">Masonry 3 Columns</a></li>
+                                                <li><a href="#" class="block py-2">Masonry 4 Columns</a></li>
+                                                <li><a href="#" class="block py-2">Masonry Sidebar</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <!-- Mask -->
+                                <li>
+                                    <button type="button" data-acc aria-expanded="false"
+                                        class="group w-full flex items-center justify-between py-2 text-left">
+                                        Mask
+                                        <i
+                                            class="ri-arrow-right-s-line text-lg text-gray-400 transition-transform duration-300 group-aria-expanded:rotate-90"></i>
+                                    </button>
+                                    <div data-open="false"
+                                        class="grid grid-rows-[0fr] data-[open=true]:grid-rows-[1fr] transition-[grid-template-rows] duration-300">
+                                        <div class="overflow-hidden">
+                                            <ul class="pl-3 text-gray-400">
+                                                <li><a href="#" class="block py-2">Mask 2 Columns</a></li>
+                                                <li><a href="#" class="block py-2">Mask 3 Columns</a></li>
+                                                <li><a href="#" class="block py-2">Mask 4 Columns</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li><a href="#" class="block py-2">Single Post</a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </li>
+
+                <!-- Pages -->
                 <li class="border-b border-white/10">
-                    <a href="#" class="flex items-center justify-between py-3">
+                    <button type="button" data-acc aria-expanded="false"
+                        class="group w-full flex items-center justify-between py-3 text-left">
                         Pages
-                        <i class="ri-arrow-right-s-line text-lg text-gray-400"></i>
-                    </a>
+                        <i
+                            class="ri-arrow-right-s-line text-lg text-gray-400 transition-transform duration-300 group-aria-expanded:rotate-90"></i>
+                    </button>
+                    <div data-open="false"
+                        class="grid grid-rows-[0fr] data-[open=true]:grid-rows-[1fr] transition-[grid-template-rows] duration-300">
+                        <div class="overflow-hidden">
+                            <ul class="pb-2 pl-3 text-[13px] font-normal text-gray-300">
+                                <li><a href="#" class="block py-2">About Us</a></li>
+                                <li><a href="#" class="block py-2">Contact Us</a></li>
+                                <li><a href="#" class="block py-2">FAQs</a></li>
+                                <li><a href="#" class="block py-2">Error 404</a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </li>
+
                 <li class="border-b border-white/10">
                     <a href="#" class="block py-3">Elements</a>
                 </li>
             </ul>
 
-            <!-- প্যানেল ২: CATEGORIES (শুরুতে লুকানো) -->
+            <!-- ===== প্যানেল ২: CATEGORIES ===== -->
             <ul id="tab-cats" class="tab-panel hidden text-sm font-medium">
+
+                <!-- Fashion -->
                 <li class="border-b border-white/10">
-                    <a href="#" class="flex items-center justify-between py-3">
+                    <button type="button" data-acc aria-expanded="false"
+                        class="group w-full flex items-center justify-between py-3 text-left">
                         <span class="flex items-center gap-3"><i class="ri-t-shirt-line text-lg"></i> Fashion</span>
-                        <i class="ri-arrow-right-s-line text-lg text-gray-400"></i>
-                    </a>
+                        <i
+                            class="ri-arrow-right-s-line text-lg text-gray-400 transition-transform duration-300 group-aria-expanded:rotate-90"></i>
+                    </button>
+                    <div data-open="false"
+                        class="grid grid-rows-[0fr] data-[open=true]:grid-rows-[1fr] transition-[grid-template-rows] duration-300">
+                        <div class="overflow-hidden">
+                            <ul class="pb-2 pl-8 text-[13px] font-normal text-gray-300">
+                                <li><a href="#" class="block py-2">Women</a></li>
+                                <li><a href="#" class="block py-2">Men</a></li>
+                                <li><a href="#" class="block py-2">New Arrivals</a></li>
+                                <li><a href="#" class="block py-2">Best Sellers</a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </li>
+
+                <!-- Home & Garden (সাধারণ) -->
                 <li class="border-b border-white/10">
-                    <a href="#" class="flex items-center justify-between py-3">
-                        <span class="flex items-center gap-3"><i class="ri-home-line text-lg"></i> Home &amp;
-                            Garden</span>
-                        <i class="ri-arrow-right-s-line text-lg text-gray-400"></i>
-                    </a>
+                    <a href="#" class="flex items-center gap-3 py-3"><i class="ri-home-line text-lg"></i> Home &amp;
+                        Garden</a>
                 </li>
+
+                <!-- Electronics -->
                 <li class="border-b border-white/10">
-                    <a href="#" class="flex items-center justify-between py-3">
+                    <button type="button" data-acc aria-expanded="false"
+                        class="group w-full flex items-center justify-between py-3 text-left">
                         <span class="flex items-center gap-3"><i class="ri-computer-line text-lg"></i>
                             Electronics</span>
-                        <i class="ri-arrow-right-s-line text-lg text-gray-400"></i>
-                    </a>
+                        <i
+                            class="ri-arrow-right-s-line text-lg text-gray-400 transition-transform duration-300 group-aria-expanded:rotate-90"></i>
+                    </button>
+                    <div data-open="false"
+                        class="grid grid-rows-[0fr] data-[open=true]:grid-rows-[1fr] transition-[grid-template-rows] duration-300">
+                        <div class="overflow-hidden">
+                            <ul class="pb-2 pl-8 text-[13px] font-normal text-gray-300">
+                                <li><a href="#" class="block py-2">Laptops &amp; Computers</a></li>
+                                <li><a href="#" class="block py-2">Digital Cameras</a></li>
+                                <li><a href="#" class="block py-2">TV &amp; Video</a></li>
+                                <li><a href="#" class="block py-2">Cell Phones</a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </li>
+
+                <!-- Furniture -->
                 <li class="border-b border-white/10">
-                    <a href="#" class="flex items-center justify-between py-3">
+                    <button type="button" data-acc aria-expanded="false"
+                        class="group w-full flex items-center justify-between py-3 text-left">
                         <span class="flex items-center gap-3"><i class="ri-sofa-line text-lg"></i> Furniture</span>
-                        <i class="ri-arrow-right-s-line text-lg text-gray-400"></i>
-                    </a>
+                        <i
+                            class="ri-arrow-right-s-line text-lg text-gray-400 transition-transform duration-300 group-aria-expanded:rotate-90"></i>
+                    </button>
+                    <div data-open="false"
+                        class="grid grid-rows-[0fr] data-[open=true]:grid-rows-[1fr] transition-[grid-template-rows] duration-300">
+                        <div class="overflow-hidden">
+                            <ul class="pb-2 pl-8 text-[13px] font-normal text-gray-300">
+                                <li><a href="#" class="block py-2">Furniture</a></li>
+                                <li><a href="#" class="block py-2">Lighting</a></li>
+                                <li><a href="#" class="block py-2">Home Accessories</a></li>
+                                <li><a href="#" class="block py-2">Garden &amp; Outdoors</a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </li>
+
                 <li class="border-b border-white/10"><a href="#" class="flex items-center gap-3 py-3"><i
                             class="ri-heart-pulse-line text-lg"></i> Health &amp; Beauty</a></li>
                 <li class="border-b border-white/10"><a href="#" class="flex items-center gap-3 py-3"><i
@@ -842,6 +1016,17 @@
                 // ৪. শুধু সংশ্লিষ্ট প্যানেল দেখাও
                 const target = btn.dataset.tab;
                 document.getElementById('tab-' + target).classList.remove('hidden');
+            });
+        });
+
+        // ===== Accordion (Tailwind ভার্সন) =====
+        document.querySelectorAll('[data-acc]').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                const panel = btn.nextElementSibling;                    // বাটনের ঠিক পরের div
+                const isOpen = btn.getAttribute('aria-expanded') === 'true';
+
+                btn.setAttribute('aria-expanded', String(!isOpen));       // তীর ঘোরানোর জন্য
+                panel.dataset.open = String(!isOpen);                     // প্যানেল খোলা/বন্ধের জন্য
             });
         });
     </script>
